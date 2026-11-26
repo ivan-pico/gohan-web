@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">gohan.cat · ご飯 · Bon profit, miau!</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="gohan.cat: el portal dels projectes, aplicacions i notícies d'un gat blanc que viu dins un bol d'arròs. Bon profit!">
+<meta name="theme-color" content="#FAF7F0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23C9C1B3' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M22 13c-3-3 3-6 0-10'/%3E%3Cpath d='M42 13c-3-3 3-6 0-10'/%3E%3C/g%3E%3Cg stroke='%233A332D' stroke-width='2.4' stroke-linejoin='round'%3E%3Cellipse cx='32' cy='37' rx='25' ry='5.5' fill='%23EDE6D8'/%3E%3Cpath d='M18 31 20 15l9 8z' fill='%23fff'/%3E%3Cpath d='M46 31 44 15l-9 8z' fill='%23fff'/%3E%3Cellipse cx='32' cy='31' rx='15.5' ry='12' fill='%23fff'/%3E%3Cpath d='M7 37a25 5.5 0 0 0 50 0c0 12-11 20-25 20S7 49 7 37z' fill='%23fff'/%3E%3C/g%3E%3Cpath d='M9.5 43.5c7 3 38 3 45 0' stroke='%23C8372D' stroke-width='3' fill='none'/%3E%3Cpath d='M21.5 21.5 21 18l4 3.5z' fill='%23E6D9C6'/%3E%3Cpath d='M42.5 21.5 43 18l-4 3.5z' fill='%23E6D9C6'/%3E%3Cg fill='none' stroke='%233A332D' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M24.5 30q2.2-2.4 4.4 0'/%3E%3Cpath d='M35.1 30q2.2-2.4 4.4 0'/%3E%3C/g%3E%3Cpath d='M30.4 33.2h3.2l-1.6 1.8z' fill='%23B09A84'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0;        /* blanc trencat */
+  --cream:#F3EDE1;     /* crema */
+  --pearl:#E6E1D7;     /* gris perla */
+  --pearl-2:#D6CFC2;
+  --paper:#FFFFFF;
+  --ink:#2F2A25;       /* tinta */
+  --ink-soft:#5E564D;  /* text secundari (contrast 6,6:1 sobre --bg) */
+  --line:#3A332D;
+  --ear:#E6D9C6;       /* interior orelles: beix càlid */
+  --nose:#B09A84;      /* nas de gat: gris càlid */
+  --rice-glow:#EFE6D3; /* subratllat crema */
+  --hanko:#B8322A;     /* segell vermell */
+  --hanko-soft:#C8372D;
+  --nori:#4F6B4C;      /* verd nori */
+  --nori-soft:#DCE5D5;
+  --radius:22px;
+  --shadow:0 1px 0 rgba(58,51,45,.04), 0 10px 30px -12px rgba(58,51,45,.18);
+  --font:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",ui-rounded,"Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(230,217,198,.30), transparent 32rem),
+    radial-gradient(circle at 92% 40%, rgba(220,229,213,.35), transparent 28rem);
+  background-attachment:fixed;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{line-height:1.2;margin:0;font-weight:900;letter-spacing:-.01em}
+p{margin:0}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:12px;z-index:100;text-decoration:none;font-weight:700}
+.skip:focus{top:1rem}
+:focus-visible{outline:3px solid var(--hanko);outline-offset:3px;border-radius:10px}
+.wrap{width:min(1120px,100% - 2rem);margin-inline:auto}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,247,240,.82);
+  backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid rgba(214,207,194,.6);
+}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}
+.brand svg{width:44px;height:44px;flex:none}
+.brand-name{font-weight:900;font-size:1.2rem;letter-spacing:-.01em}
+.brand-name .dot{color:var(--hanko)}
+.brand-ja{font-size:.8rem;color:var(--ink-soft);font-weight:500;margin-left:.15rem;padding:.05rem .4rem;border:1.5px solid var(--pearl-2);border-radius:6px}
+.nav ul{display:flex;gap:.15rem;list-style:none;margin:0;padding:0}
+.nav a{display:block;text-decoration:none;font-weight:700;font-size:.92rem;padding:.45rem .6rem;border-radius:999px;color:var(--ink-soft);transition:background .2s,color .2s}
+.nav a:hover{background:var(--cream);color:var(--ink)}
+.nav{margin-left:auto}
+.lang-switch{display:inline-flex;align-items:center;flex:none;padding:3px;gap:2px;background:var(--paper);border:1.5px solid var(--pearl);border-radius:999px}
+.lang-switch button{font:inherit;font-size:.74rem;font-weight:700;letter-spacing:.06em;line-height:1;padding:.42rem .58rem;border:0;border-radius:999px;background:none;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s}
+.lang-switch button:hover{color:var(--ink);background:var(--cream)}
+.lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media (max-width:640px){
+  .site-header .wrap{flex-wrap:wrap;row-gap:0;min-height:0;padding:.55rem 0 .3rem}
+  .lang-switch{order:2}
+  .nav{order:3;width:100%;margin-left:0}
+  .nav ul{justify-content:center;gap:.4rem}
+  :root{--header-offset:118px}
+}
+@media (max-width:420px){.brand-ja{display:none}.nav a{padding:.45rem .45rem;font-size:.88rem}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:2.5rem 0 3.5rem}
+.hero .wrap{display:grid;gap:1.5rem;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--hanko)}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.hero h1{font-size:clamp(2.3rem,7.5vw,4.1rem);margin:.7rem 0 1rem}
+.hero h1 em{font-style:normal;color:var(--hanko);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.06em;height:.32em;background:var(--rice-glow);z-index:-1;border-radius:.2em}
+.hero .lead{font-size:1.15rem;color:var(--ink-soft);max-width:34ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:inherit;font-weight:700;text-decoration:none;padding:.85rem 1.35rem;border-radius:999px;border:2px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
+.btn-primary{background:var(--hanko);color:#fff;box-shadow:0 8px 20px -10px rgba(184,50,42,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(184,50,42,.75)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--pearl)}
+.btn-ghost:hover{border-color:var(--pearl-2);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+.hero-art{position:relative;max-width:460px;width:100%;margin-inline:auto}
+.sun{position:absolute;inset:6% 8% 14%;border-radius:50%;background:radial-gradient(circle at 40% 35%, #FCF9F2, #EFE8DB 70%);opacity:.75}
+.cat-btn{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;border-radius:40px;-webkit-tap-highlight-color:transparent}
+.cat-btn svg{width:100%;height:auto;overflow:visible}
+.bubble{
+  position:absolute;top:2%;right:-2%;z-index:3;
+  background:var(--paper);color:var(--ink);font-weight:900;font-size:1.1rem;
+  padding:.65rem 1rem;border-radius:18px;border:2.5px solid var(--line);
+  box-shadow:4px 4px 0 var(--pearl);white-space:nowrap;
+  opacity:0;transform:scale(.6) translateY(10px);transform-origin:10% 100%;
+  transition:opacity .25s, transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;
+}
+.bubble::after{content:"";position:absolute;left:18px;bottom:-11px;width:16px;height:16px;background:var(--paper);border-right:2.5px solid var(--line);border-bottom:2.5px solid var(--line);transform:rotate(45deg) skew(8deg,8deg)}
+.bubble.show{opacity:1;transform:none}
+.hint{text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:.25rem}
+
+/* grans d'arròs flotant */
+.grains{position:absolute;inset:0;pointer-events:none;z-index:0}
+.grain{position:absolute;left:var(--x);top:var(--y);width:9px;height:15px;border-radius:50%;background:var(--paper);border:1.5px solid var(--pearl-2);transform:rotate(var(--r));animation:float var(--d,7s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(calc(var(--r) + 25deg))}}
+
+/* SVG del gat */
+.steam path{animation:steam 4.2s ease-in-out infinite;opacity:0}
+.steam path:nth-child(2){animation-delay:1.4s}
+.steam path:nth-child(3){animation-delay:2.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(12px)}35%{opacity:.95}100%{opacity:0;transform:translateY(-26px)}}
+.eyes{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}95.5%{transform:scaleY(.08)}}
+.tail{transform-box:view-box;transform-origin:322px 300px;animation:tail 3.2s ease-in-out infinite}
+@keyframes tail{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+.ear-l,.ear-r{transform-box:fill-box}
+.ear-l{transform-origin:70% 100%}.ear-r{transform-origin:30% 100%}
+.cat-btn.meow .ear-l{animation:twitchL .5s ease}
+.cat-btn.meow .ear-r{animation:twitchR .5s ease .05s}
+.cat-btn.meow .cat-head{animation:bob .5s ease}
+@keyframes twitchL{40%{transform:rotate(-12deg)}}
+@keyframes twitchR{40%{transform:rotate(12deg)}}
+@keyframes bob{40%{transform:translateY(-8px)}}
+.cat-head{transform-box:view-box;transform-origin:210px 260px}
+.mouth-open{opacity:0;transition:opacity .15s}
+.cat-btn.meow .mouth-open{opacity:1}
+.cat-btn.meow .mouth-closed{opacity:0}
+
+@media (min-width:860px){
+  .hero{padding:4.5rem 0 5rem}
+  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:3rem}
+}
+
+/* ---------- Seccions ---------- */
+section{scroll-margin-top:var(--header-offset,80px)}
+.section{padding:4rem 0}
+.section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:2rem}
+.section-head h2{font-size:clamp(1.8rem,4.5vw,2.5rem);display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.section-head h2 .ja{font-size:.95rem;font-weight:500;color:var(--hanko);letter-spacing:.1em}
+.section-head p{color:var(--ink-soft);max-width:42ch}
+
+.divider{height:28px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cg fill='none' stroke='%23D6CFC2' stroke-width='1.5'%3E%3Cpath d='M0 28a28 28 0 0 1 56 0M8 28a20 20 0 0 1 40 0M16 28a12 12 0 0 1 24 0'/%3E%3C/g%3E%3C/svg%3E") repeat-x bottom/56px 28px;opacity:.9}
+
+/* Projectes */
+.projects{background:linear-gradient(var(--cream),var(--bg))}
+.grid{display:grid;gap:1rem;grid-template-columns:1fr;list-style:none;margin:0;padding:0}
+@media (min-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+@media (min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+.card{
+  position:relative;height:100%;background:var(--paper);border:1.5px solid var(--pearl);border-radius:var(--radius);
+  padding:1.4rem 1.4rem 1.3rem;box-shadow:var(--shadow);transition:transform .25s, border-color .25s, box-shadow .25s;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--pearl-2);box-shadow:0 1px 0 rgba(58,51,45,.04),0 18px 36px -16px rgba(58,51,45,.25)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--bg);border:1.5px solid var(--pearl)}
+.icon svg{width:36px;height:36px}
+.tag{font-size:.75rem;font-weight:700;letter-spacing:.04em;padding:.25rem .65rem;border-radius:999px;border:1.5px dashed var(--pearl-2);color:var(--ink-soft);background:var(--bg)}
+.tag.cooking{border-style:solid;border-color:var(--nori-soft);background:#EEF3EA;color:var(--nori)}
+.card h3{font-size:1.25rem;margin-top:.35rem}
+.card h3 small{display:block;font-size:.78rem;font-weight:500;color:var(--ink-soft);letter-spacing:.06em;margin-top:.15rem}
+.card p{color:var(--ink-soft);font-size:.98rem}
+
+/* Notícies */
+.posts{display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:860px){.posts{grid-template-columns:repeat(3,1fr);gap:1.25rem}}
+.post{background:var(--paper);border:1.5px solid var(--pearl);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.post::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--ear))}
+.post:nth-child(2){--accent:var(--nori-soft)}
+.post:nth-child(3){--accent:var(--pearl-2)}
+.post time{font-size:.85rem;font-weight:700;color:var(--hanko);letter-spacing:.02em}
+.post h3{font-size:1.25rem}
+.post h3 a{text-decoration:none;background-image:linear-gradient(var(--rice-glow),var(--rice-glow));background-size:0 .35em;background-position:0 88%;background-repeat:no-repeat;transition:background-size .3s}
+.post h3 a:hover{background-size:100% .35em}
+.post p{color:var(--ink-soft);font-size:.98rem}
+.post .more{margin-top:auto;font-weight:700;font-size:.92rem;color:var(--ink);text-decoration:none;display:inline-flex;gap:.35rem;align-items:center}
+.post .more:hover{color:var(--hanko)}
+
+/* Sobre */
+.about-card{display:grid;gap:1.75rem;align-items:center;background:var(--paper);border:1.5px solid var(--pearl);border-radius:32px;padding:clamp(1.5rem,4vw,3rem);box-shadow:var(--shadow)}
+.about-card p+p{margin-top:.9rem}
+.about-card p{color:var(--ink-soft)}
+.about-card strong{color:var(--ink)}
+.hanko-seal{width:120px;height:120px;margin-inline:auto;transform:rotate(-6deg)}
+@media (min-width:760px){.about-card{grid-template-columns:auto 1fr;gap:3rem}.hanko-seal{width:150px;height:150px}}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.3rem 0 0;padding:0;list-style:none}
+.facts li{font-size:.85rem;font-weight:700;padding:.35rem .8rem;border-radius:999px;background:var(--bg);border:1.5px solid var(--pearl)}
+
+/* Footer */
+.site-footer{padding:3rem 0 2.5rem;text-align:center;color:var(--ink-soft);font-size:.92rem}
+.paws{display:flex;justify-content:center;gap:clamp(.6rem,3vw,1.6rem);margin-bottom:1.5rem}
+.paws svg{width:26px;height:26px;color:var(--pearl-2);animation:step 4s ease-in-out infinite}
+.paws svg:nth-child(odd){transform:translateY(-8px) rotate(-12deg)}
+.paws svg:nth-child(even){transform:translateY(6px) rotate(12deg)}
+.paws svg:nth-child(1){animation-delay:0s}.paws svg:nth-child(2){animation-delay:.3s}.paws svg:nth-child(3){animation-delay:.6s}
+.paws svg:nth-child(4){animation-delay:.9s}.paws svg:nth-child(5){animation-delay:1.2s}.paws svg:nth-child(6){animation-delay:1.5s}
+.paws svg:nth-child(7){animation-delay:1.8s}
+@keyframes step{0%,100%{color:var(--pearl-2)}15%{color:var(--nose)}}
+.footer-brand{display:inline-flex;align-items:center;gap:.4rem;font-weight:900;color:var(--ink);text-decoration:none}
+.footer-brand svg{width:28px;height:28px}
+.site-footer p{margin-top:.5rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .steam path{opacity:.6}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contingut" data-i18n="skip">Salta al contingut</a>
+
+<!-- Sprite de símbols SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <g fill="none" stroke="#C9C1B3" stroke-width="2.6" stroke-linecap="round">
+        <path d="M22 13c-3-3 3-6 0-10"/><path d="M42 13c-3-3 3-6 0-10"/>
+      </g>
+      <g stroke="#3A332D" stroke-width="2.4" stroke-linejoin="round">
+        <ellipse cx="32" cy="37" rx="25" ry="5.5" fill="#EDE6D8"/>
+        <path d="M18 31 20 15l9 8z" fill="#fff"/>
+        <path d="M46 31 44 15l-9 8z" fill="#fff"/>
+        <ellipse cx="32" cy="31" rx="15.5" ry="12" fill="#fff"/>
+      </g>
+      <path d="M21.5 21.5 21 18l4 3.5z" fill="#E6D9C6"/>
+      <path d="M42.5 21.5 43 18l-4 3.5z" fill="#E6D9C6"/>
+      <g fill="none" stroke="#3A332D" stroke-width="2" stroke-linecap="round">
+        <path d="M24.5 30q2.2-2.4 4.4 0"/><path d="M35.1 30q2.2-2.4 4.4 0"/>
+      </g>
+      <ellipse cx="23.5" cy="34" rx="2.2" ry="1.3" fill="#E6D9C6" opacity=".8"/>
+      <ellipse cx="40.5" cy="34" rx="2.2" ry="1.3" fill="#E6D9C6" opacity=".8"/>
+      <path d="M30.4 33.2h3.2l-1.6 1.8z" fill="#B09A84"/>
+      <path d="M10 37c3-3.5 6-2 8-3 2.5-2 5-.5 7-1.5 2.5-1.5 5 0 7 0s4.5-1.5 7 0c2 1 4.5-.5 7 1.5 2 1 5-.5 8 3" fill="#FBF8F1" stroke="#3A332D" stroke-width="1.6" stroke-linejoin="round"/>
+      <g fill="#fff" stroke="#3A332D" stroke-width="2.2"><ellipse cx="24" cy="37" rx="3.6" ry="2.6"/><ellipse cx="40" cy="37" rx="3.6" ry="2.6"/></g>
+      <path d="M7 37a25 5.5 0 0 0 50 0c0 12-11 20-25 20S7 49 7 37z" fill="#fff" stroke="#3A332D" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M9.6 44c8 3.2 36.8 3.2 44.8 0" stroke="#C8372D" stroke-width="3" fill="none"/>
+      <path d="M25 57.5h14l-1.5 3.2h-11z" fill="#EDE6D8" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="paw" viewBox="0 0 32 32">
+      <g fill="currentColor">
+        <ellipse cx="16" cy="21" rx="7.5" ry="6.5"/>
+        <ellipse cx="7" cy="13" rx="3" ry="3.8" transform="rotate(-18 7 13)"/>
+        <ellipse cx="12.5" cy="7.5" rx="3" ry="3.9"/>
+        <ellipse cx="19.5" cy="7.5" rx="3" ry="3.9"/>
+        <ellipse cx="25" cy="13" rx="3" ry="3.8" transform="rotate(18 25 13)"/>
+      </g>
+    </symbol>
+
+    <symbol id="arrow" viewBox="0 0 20 20"><path d="M4 10h11m-4-4.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+    <clipPath id="bowlClip">
+      <path d="M58 270a152 24 0 0 0 304 0c0 66-62 102-152 102S58 336 58 270z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#inici" aria-label="gohan.cat, inici" data-i18n-attr="aria-label:brand.label">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span class="brand-name">gohan<span class="dot">.</span>cat</span>
+      <span class="brand-ja" lang="ja">ご飯</span>
+    </a>
+    <nav class="nav" aria-label="Navegació principal" data-i18n-attr="aria-label:nav.label">
+      <ul>
+        <li><a href="#projectes" data-i18n="nav.projects">Projectes</a></li>
+        <li><a href="#noticies" data-i18n="nav.news">Notícies</a></li>
+        <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:lang.group">
+      <button type="button" data-lang="ca" lang="ca" aria-pressed="true" aria-label="Català">CA</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="false" aria-label="Castellano">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="contingut">
+  <!-- HERO -->
+  <section class="hero" id="inici" aria-labelledby="hero-title">
+    <div class="grains" aria-hidden="true">
+      <span class="grain" style="--x:6%;--y:18%;--r:20deg;--d:7s"></span>
+      <span class="grain" style="--x:44%;--y:9%;--r:-35deg;--d:8.5s;--dl:-2s"></span>
+      <span class="grain" style="--x:90%;--y:14%;--r:60deg;--d:6.5s;--dl:-1s"></span>
+      <span class="grain" style="--x:52%;--y:84%;--r:-10deg;--d:9s;--dl:-3s"></span>
+      <span class="grain" style="--x:12%;--y:78%;--r:75deg;--d:7.5s;--dl:-4s"></span>
+      <span class="grain" style="--x:96%;--y:70%;--r:-55deg;--d:8s;--dl:-2.5s"></span>
+      <span class="grain" style="--x:30%;--y:50%;--r:40deg;--d:10s;--dl:-5s"></span>
+    </div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="hero.eyebrow">Benvinguts al bol</span>
+        <h1 id="hero-title" data-i18n="hero.title">Aquí hi ha <em>gat amagat</em>… dins d'un bol d'arròs.</h1>
+        <p class="lead" data-i18n="hero.lead">Projectes, aplicacions i notícies servits ben calents, com un bol de <span lang="ja">ご飯</span> acabat de fer. Agafa els bastonets: bon profit, miau!</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projectes"><span data-i18n="hero.cta">Mira els projectes</span> <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#noticies" data-i18n="hero.cta2">Últimes notícies</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="bubble" id="bubble" role="status" aria-live="polite"></div>
+        <button class="cat-btn" id="cat" type="button" aria-label="Fes una moixaina al gat" data-i18n-attr="aria-label:cat.label">
+          <svg viewBox="0 0 420 400" aria-hidden="true" focusable="false">
+            <!-- ombra -->
+            <ellipse cx="210" cy="384" rx="140" ry="11" fill="#E6E1D7"/>
+
+            <!-- cua -->
+            <g class="tail">
+              <path d="M322 300c40-6 62-34 56-66-4-22 12-34 26-24" fill="none" stroke="#3A332D" stroke-width="26" stroke-linecap="round"/>
+              <path d="M322 300c40-6 62-34 56-66-4-22 12-34 26-24" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
+              <path d="M392 216c4-4 9-6 12-6" fill="none" stroke="#E6D9C6" stroke-width="8" stroke-linecap="round"/>
+            </g>
+
+            <!-- vora posterior del bol -->
+            <ellipse cx="210" cy="270" rx="152" ry="24" fill="#EAE3D5" stroke="#3A332D" stroke-width="3.5"/>
+
+            <!-- cap del gat -->
+            <g class="cat-head">
+              <g class="ear-l">
+                <path d="M136 168 146 82q2-8 9-3l50 44z" fill="#fff" stroke="#3A332D" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M150 140 155 100l30 26z" fill="#E6D9C6"/>
+              </g>
+              <g class="ear-r">
+                <path d="M284 168 274 82q-2-8-9-3l-50 44z" fill="#fff" stroke="#3A332D" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M270 140 265 100l-30 26z" fill="#E6D9C6"/>
+              </g>
+              <ellipse cx="210" cy="192" rx="94" ry="80" fill="#fff" stroke="#3A332D" stroke-width="3.5"/>
+              <!-- taqueta crema al front -->
+              <path d="M190 118q20-14 40 0-8 10-20 10t-20-10z" fill="#F3EDE1"/>
+              <g class="eyes" fill="#2F2A25">
+                <ellipse cx="172" cy="190" rx="10" ry="12.5"/>
+                <ellipse cx="248" cy="190" rx="10" ry="12.5"/>
+                <circle cx="175.5" cy="185" r="3.6" fill="#fff"/>
+                <circle cx="251.5" cy="185" r="3.6" fill="#fff"/>
+              </g>
+              <ellipse cx="150" cy="218" rx="15" ry="8.5" fill="#EDE3D3" opacity=".9"/>
+              <ellipse cx="270" cy="218" rx="15" ry="8.5" fill="#EDE3D3" opacity=".9"/>
+              <path d="M202 207h16q2 0 1 2l-7 7q-2 2-4 0l-7-7q-1-2 1-2z" fill="#B09A84"/>
+              <path class="mouth-closed" d="M196 222q7 9 14 0 7 9 14 0" fill="none" stroke="#3A332D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <g class="mouth-open">
+                <path d="M199 221q11 22 22 0z" fill="#B8322A" stroke="#3A332D" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M204 230q6-5 12 0" fill="none" stroke="#E9D5B5" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <g stroke="#3A332D" stroke-width="2.4" stroke-linecap="round" opacity=".75">
+                <path d="M128 200 92 194"/><path d="M128 210 90 214"/>
+                <path d="M292 200 328 194"/><path d="M292 210 330 214"/>
+              </g>
+            </g>
+
+            <!-- muntanyeta d'arròs -->
+            <path d="M66 268c10-14 26-20 40-16 8-10 22-12 32-6 10-8 24-8 34-2 10-6 22-6 30 0 10-6 22-6 30 0 10-6 24-6 34 2 10-6 24-4 32 6 14-4 30 2 40 16z" fill="#FCFAF5" stroke="#3A332D" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="none" stroke="#CFC6B6" stroke-width="2.4" stroke-linecap="round">
+              <path d="M100 262l6-3"/><path d="M128 254l5 3"/><path d="M300 258l6 2"/><path d="M326 264l5-4"/>
+              <path d="M88 268l5 0"/><path d="M346 268l-5-1"/>
+            </g>
+
+            <!-- potetes sobre l'arròs -->
+            <g fill="#fff" stroke="#3A332D" stroke-width="3.5">
+              <ellipse cx="166" cy="266" rx="22" ry="15"/>
+              <ellipse cx="254" cy="266" rx="22" ry="15"/>
+            </g>
+            <g stroke="#3A332D" stroke-width="2.4" stroke-linecap="round">
+              <path d="M159 260v8"/><path d="M171 260v8"/><path d="M247 260v8"/><path d="M259 260v8"/>
+            </g>
+
+            <!-- bol (davant) -->
+            <path d="M58 270a152 24 0 0 0 304 0c0 66-62 102-152 102S58 336 58 270z" fill="#fff"/>
+            <g clip-path="url(#bowlClip)">
+              <path d="M40 304c60 22 280 22 340 0v14c-60 22-280 22-340 0z" fill="#C8372D"/>
+              <g fill="none" stroke="#E6E1D7" stroke-width="2.2">
+                <path d="M96 352a14 14 0 0 1 28 0M124 352a14 14 0 0 1 28 0M152 358a14 14 0 0 1 28 0M240 358a14 14 0 0 1 28 0M268 352a14 14 0 0 1 28 0M296 352a14 14 0 0 1 28 0"/>
+              </g>
+              <path d="M58 270a152 24 0 0 0 304 0v10a152 24 0 0 1-304 0z" fill="#F3EDE1" opacity=".7"/>
+            </g>
+            <path d="M58 270a152 24 0 0 0 304 0c0 66-62 102-152 102S58 336 58 270z" fill="none" stroke="#3A332D" stroke-width="3.5" stroke-linejoin="round"/>
+            <!-- segell al bol -->
+            <circle cx="210" cy="344" r="17" fill="#fff" stroke="#C8372D" stroke-width="2.5"/>
+            <text x="210" y="351" text-anchor="middle" font-size="19" font-weight="700" fill="#B8322A" font-family="'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic',sans-serif">飯</text>
+            <!-- peu del bol -->
+            <path d="M164 370h92l-6 12h-80z" fill="#EAE3D5" stroke="#3A332D" stroke-width="3.5" stroke-linejoin="round"/>
+
+            <!-- bastonets -->
+            <g stroke-linecap="round">
+              <path d="M40 252 118 196" stroke="#3A332D" stroke-width="9"/>
+              <path d="M40 252 118 196" stroke="#E9D5B5" stroke-width="5"/>
+              <path d="M30 238 112 188" stroke="#3A332D" stroke-width="9"/>
+              <path d="M30 238 112 188" stroke="#E9D5B5" stroke-width="5"/>
+              <path d="M30 238 46 228M40 252 56 241" stroke="#C8372D" stroke-width="5"/>
+            </g>
+
+            <!-- vapor -->
+            <g class="steam" fill="none" stroke="#CFC6B6" stroke-width="5" stroke-linecap="round">
+              <path d="M96 236c-14-16 12-30 0-48s12-30 0-46"/>
+              <path d="M210 98c-14-14 12-26 0-42s12-26 0-40"/>
+              <path d="M330 232c-14-16 12-30 0-48s12-30 0-46"/>
+            </g>
+          </svg>
+        </button>
+        <p class="hint" data-i18n="cat.hint">Psst… prova de fer-li una moixaina.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- PROJECTES -->
+  <section class="section projects" id="projectes" aria-labelledby="projectes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="projectes-title"><span data-i18n="projects.title">Projectes</span> <span class="ja" lang="ja">プロジェクト</span></h2>
+        <p data-i18n="projects.intro">Petites aplicacions que es couen a foc lent. Encara són a la cassola, però ja fan bona olor.</p>
+      </div>
+      <ul class="grid cols-3">
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><path d="M20 6c3 0 5 2 7 5l7 13c3 6-1 11-7 11H13c-6 0-10-5-7-11l7-13c2-3 4-5 7-5z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="14" y="25" width="12" height="10" rx="1.5" fill="#4F6B4C"/><circle cx="16.5" cy="18" r="1.4" fill="#3A332D"/><circle cx="23.5" cy="18" r="1.4" fill="#3A332D"/><path d="M19 21h2l-1 1.2z" fill="#B09A84"/></svg>
+              </div>
+              <span class="tag cooking" data-i18n="tag.cooking">Al foc</span>
+            </div>
+            <h3><span data-i18n="p1.name">Miaunigiri</span> <small lang="ja">おにぎり</small></h3>
+            <p data-i18n="p1.desc">Una capsa d'eines diminutes en forma de triangle: conversors, comptadors i altres utilitats de butxaca.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M15 12c-2-2 2-4 0-6"/><path d="M25 12c-2-2 2-4 0-6"/></g><path d="M5 19a15 3.5 0 0 0 30 0c0 9-6 15-15 15S5 28 5 19z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><ellipse cx="20" cy="19" rx="15" ry="3.5" fill="#FCFAF5" stroke="#3A332D" stroke-width="2.2"/><path d="M7 24c6 2.5 20 2.5 26 0" stroke="#C8372D" stroke-width="2.4" fill="none"/></svg>
+              </div>
+              <span class="tag" data-i18n="tag.soon">Properament</span>
+            </div>
+            <h3><span data-i18n="p2.name">Bol de Bigotis</span> <small lang="ja">どんぶり</small></h3>
+            <p data-i18n="p2.desc">Un receptari per a gent mandrosa: tria què tens a la nevera i et proposa un àpat en tres passos.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><g fill="#EFE6D3" stroke="#3A332D" stroke-width="2"><ellipse cx="20" cy="26" rx="8" ry="7"/><ellipse cx="10" cy="17" rx="3.2" ry="4"/><ellipse cx="16" cy="11" rx="3.2" ry="4"/><ellipse cx="24" cy="11" rx="3.2" ry="4"/><ellipse cx="30" cy="17" rx="3.2" ry="4"/></g></svg>
+              </div>
+              <span class="tag" data-i18n="tag.soon">Properament</span>
+            </div>
+            <h3><span data-i18n="p3.name">Ronroneig</span> <small lang="ja">ごろごろ</small></h3>
+            <p data-i18n="p3.desc">Temporitzador de concentració amb sons de gat que ronca. Quan acabes, et fa un cop de cap.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="#4F6B4C" stroke="#3A332D" stroke-width="2.2"/><circle cx="20" cy="20" r="9.5" fill="#fff"/><circle cx="20" cy="20" r="4" fill="#C8372D"/><path d="M14 17l2 1M24 15l1 2M23 25l2-1M14 24l2-1" stroke="#CFC6B6" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <span class="tag" data-i18n="tag.soon">Properament</span>
+            </div>
+            <h3><span data-i18n="p4.name">Maki Mix</span> <small lang="ja">まきずし</small></h3>
+            <p data-i18n="p4.desc">Generador de paletes de colors enrotllades com un maki. Copia, enganxa i a dissenyar.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><rect x="9" y="6" width="22" height="28" rx="3" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M9 11 13 6M31 11l-4-5" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/><rect x="9" y="26" width="22" height="8" rx="2" fill="#DCE5D5" stroke="#3A332D" stroke-width="2.2"/><path d="M14 15h12M14 20h8" stroke="#CFC6B6" stroke-width="2.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="tag" data-i18n="tag.soon">Properament</span>
+            </div>
+            <h3><span data-i18n="p5.name">Neko Nori</span> <small lang="ja">ねこのり</small></h3>
+            <p data-i18n="p5.desc">Notes ràpides que s'enganxen com una fulla d'alga. Sense comptes, sense soroll, només text.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="card-top">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><g stroke-linecap="round"><path d="M8 32 30 8" stroke="#3A332D" stroke-width="5"/><path d="M8 32 30 8" stroke="#E9D5B5" stroke-width="2.4"/><path d="M14 34 34 13" stroke="#3A332D" stroke-width="5"/><path d="M14 34 34 13" stroke="#E9D5B5" stroke-width="2.4"/></g><ellipse cx="25" cy="27" rx="3" ry="4.6" transform="rotate(35 25 27)" fill="#fff" stroke="#3A332D" stroke-width="1.8"/></svg>
+              </div>
+              <span class="tag" data-i18n="tag.soon">Properament</span>
+            </div>
+            <h3><span data-i18n="p6.name">Gra a Gra</span> <small lang="ja">いちりゅう</small></h3>
+            <p data-i18n="p6.desc">Un seguidor d'hàbits on cada dia complert és un gra d'arròs. Omple el bol abans de final de mes!</p>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- NOTÍCIES -->
+  <section class="section" id="noticies" aria-labelledby="noticies-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="noticies-title"><span data-i18n="news.title">Notícies</span> <span class="ja" lang="ja">お知らせ</span></h2>
+        <p data-i18n="news.intro">Novetats, apunts de cuina digital i alguna miolada ocasional.</p>
+      </div>
+      <div class="posts">
+        <article class="post">
+          <time datetime="2026-11-26" data-i18n-date>26 de novembre de 2026</time>
+          <h3><a href="#noticies" data-i18n="post1.title">Hola, món! (i hola, gat)</a></h3>
+          <p data-i18n="post1.text">Obrim les portes de gohan.cat. Aquí trobaràs tots els projectes reunits en un sol bol, servits amb calma i bon humor.</p>
+          <a class="more" href="#noticies" aria-label="Llegeix més: Hola, món!" data-i18n-attr="aria-label:post1.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </article>
+        <article class="post">
+          <time datetime="2026-11-12" data-i18n-date>12 de novembre de 2026</time>
+          <h3><a href="#noticies" data-i18n="post2.title">Com es cou un projecte a foc lent</a></h3>
+          <p data-i18n="post2.text">Rentar l'arròs, esperar que absorbeixi l'aigua i no destapar l'olla abans d'hora. El nostre mètode de treball, explicat.</p>
+          <a class="more" href="#noticies" aria-label="Llegeix més: Com es cou un projecte a foc lent" data-i18n-attr="aria-label:post2.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </article>
+        <article class="post">
+          <time datetime="2026-11-03" data-i18n-date>3 de novembre de 2026</time>
+          <h3><a href="#noticies" data-i18n="post3.title">El gat ja té nom</a></h3>
+          <p data-i18n="post3.text">Després de llargues deliberacions (i molts berenars), la mascota es diu Gohan. Li agrada l'arròs, dormir i res més.</p>
+          <a class="more" href="#noticies" aria-label="Llegeix més: El gat ja té nom" data-i18n-attr="aria-label:post3.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre" aria-labelledby="sobre-title">
+    <div class="wrap">
+      <div class="about-card">
+        <svg class="hanko-seal" viewBox="0 0 120 120" aria-hidden="true">
+          <rect x="8" y="8" width="104" height="104" rx="18" fill="#C8372D"/>
+          <rect x="16" y="16" width="88" height="88" rx="12" fill="none" stroke="#FAF7F0" stroke-width="3"/>
+          <text x="60" y="56" text-anchor="middle" font-size="34" font-weight="900" fill="#FAF7F0" font-family="'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic',sans-serif">ご飯</text>
+          <text x="60" y="88" text-anchor="middle" font-size="18" font-weight="700" fill="#FAF7F0" font-family="'Zen Maru Gothic',sans-serif" letter-spacing="1">.cat</text>
+        </svg>
+        <div>
+          <div class="section-head" style="margin-bottom:1rem">
+            <h2 id="sobre-title"><span data-i18n="about.title">Sobre</span> <span class="ja" lang="ja">について</span></h2>
+          </div>
+          <p data-i18n="about.p1"><strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.</p>
+          <p data-i18n="about.p2">Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.</p>
+          <ul class="facts">
+            <li data-i18n="fact1">Fet a Catalunya</li>
+            <li data-i18n="fact2">Cuinat a foc lent</li>
+            <li data-i18n="fact3">100% amb gat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="paws" aria-hidden="true">
+      <svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg>
+    </div>
+    <a class="footer-brand" href="#inici"><svg aria-hidden="true"><use href="#logo"/></svg> gohan.cat <span lang="ja">ご飯</span></a>
+    <p data-i18n="footer.text">© 2026 gohan.cat · Fet amb arròs, calma i ronrons.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---------- Idioma (català per defecte) ---------- */
+  var I18N = {
+    ca: {
+      'meta.title': 'gohan.cat · ご飯 · Bon profit, miau!',
+      'meta.desc': "gohan.cat: el portal dels projectes, aplicacions i notícies d'un gat blanc que viu dins un bol d'arròs. Bon profit!",
+      'skip': 'Salta al contingut',
+      'brand.label': 'gohan.cat, inici',
+      'nav.label': 'Navegació principal',
+      'nav.projects': 'Projectes',
+      'nav.news': 'Notícies',
+      'nav.about': 'Sobre',
+      'lang.group': 'Idioma',
+      'hero.eyebrow': 'Benvinguts al bol',
+      'hero.title': "Aquí hi ha <em>gat amagat</em>… dins d'un bol d'arròs.",
+      'hero.lead': 'Projectes, aplicacions i notícies servits ben calents, com un bol de <span lang="ja">ご飯</span> acabat de fer. Agafa els bastonets: bon profit, miau!',
+      'hero.cta': 'Mira els projectes',
+      'hero.cta2': 'Últimes notícies',
+      'cat.label': 'Fes una moixaina al gat',
+      'cat.hint': 'Psst… prova de fer-li una moixaina.',
+      'projects.title': 'Projectes',
+      'projects.intro': 'Petites aplicacions que es couen a foc lent. Encara són a la cassola, però ja fan bona olor.',
+      'tag.cooking': 'Al foc',
+      'tag.soon': 'Properament',
+      'p1.name': 'Miaunigiri',
+      'p1.desc': "Una capsa d'eines diminutes en forma de triangle: conversors, comptadors i altres utilitats de butxaca.",
+      'p2.name': 'Bol de Bigotis',
+      'p2.desc': 'Un receptari per a gent mandrosa: tria què tens a la nevera i et proposa un àpat en tres passos.',
+      'p3.name': 'Ronroneig',
+      'p3.desc': 'Temporitzador de concentració amb sons de gat que ronca. Quan acabes, et fa un cop de cap.',
+      'p4.name': 'Maki Mix',
+      'p4.desc': 'Generador de paletes de colors enrotllades com un maki. Copia, enganxa i a dissenyar.',
+      'p5.name': 'Neko Nori',
+      'p5.desc': "Notes ràpides que s'enganxen com una fulla d'alga. Sense comptes, sense soroll, només text.",
+      'p6.name': 'Gra a Gra',
+      'p6.desc': "Un seguidor d'hàbits on cada dia complert és un gra d'arròs. Omple el bol abans de final de mes!",
+      'news.title': 'Notícies',
+      'news.intro': 'Novetats, apunts de cuina digital i alguna miolada ocasional.',
+      'more': 'Llegeix més',
+      'post1.title': 'Hola, món! (i hola, gat)',
+      'post1.text': 'Obrim les portes de gohan.cat. Aquí trobaràs tots els projectes reunits en un sol bol, servits amb calma i bon humor.',
+      'post1.more': 'Llegeix més: Hola, món!',
+      'post2.title': 'Com es cou un projecte a foc lent',
+      'post2.text': "Rentar l'arròs, esperar que absorbeixi l'aigua i no destapar l'olla abans d'hora. El nostre mètode de treball, explicat.",
+      'post2.more': 'Llegeix més: Com es cou un projecte a foc lent',
+      'post3.title': 'El gat ja té nom',
+      'post3.text': "Després de llargues deliberacions (i molts berenars), la mascota es diu Gohan. Li agrada l'arròs, dormir i res més.",
+      'post3.more': 'Llegeix més: El gat ja té nom',
+      'about.title': 'Sobre',
+      'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.',
+      'about.p2': "Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.",
+      'fact1': 'Fet a Catalunya',
+      'fact2': 'Cuinat a foc lent',
+      'fact3': '100% amb gat',
+      'footer.text': '© 2026 gohan.cat · Fet amb arròs, calma i ronrons.',
+      'meow.first': 'miau! ご飯?',
+      'meow.last': "prou, que se'm refreda l'arròs!",
+      'meow.list': ['miau! ご飯?', 'miau! ご飯?', 'més arròs, sisplau!', 'ronc, ronc…', 'bon profit!', 'una mica de nori?']
+    },
+    es: {
+      'meta.title': 'gohan.cat · ご飯 · ¡Buen provecho, miau!',
+      'meta.desc': 'gohan.cat: el portal de los proyectos, aplicaciones y noticias de un gato blanco que vive dentro de un bol de arroz. ¡Buen provecho!',
+      'skip': 'Saltar al contenido',
+      'brand.label': 'gohan.cat, inicio',
+      'nav.label': 'Navegación principal',
+      'nav.projects': 'Proyectos',
+      'nav.news': 'Noticias',
+      'nav.about': 'Sobre mí',
+      'lang.group': 'Idioma',
+      'hero.eyebrow': 'Bienvenidos al bol',
+      'hero.title': 'Aquí hay <em>gato encerrado</em>… dentro de un bol de arroz.',
+      'hero.lead': 'Proyectos, aplicaciones y noticias servidos bien calentitos, como un bol de <span lang="ja">ご飯</span> recién hecho. Coge los palillos: ¡buen provecho, miau!',
+      'hero.cta': 'Ver los proyectos',
+      'hero.cta2': 'Últimas noticias',
+      'cat.label': 'Hazle una caricia al gato',
+      'cat.hint': 'Psst… prueba a hacerle una caricia.',
+      'projects.title': 'Proyectos',
+      'projects.intro': 'Pequeñas aplicaciones que se cuecen a fuego lento. Todavía están en la cazuela, pero ya huelen de maravilla.',
+      'tag.cooking': 'Al fuego',
+      'tag.soon': 'Próximamente',
+      'p1.name': 'Miaunigiri',
+      'p1.desc': 'Una caja de herramientas diminutas con forma de triángulo: conversores, contadores y otras utilidades de bolsillo.',
+      'p2.name': 'Bol de Bigotes',
+      'p2.desc': 'Un recetario para gente perezosa: elige lo que tienes en la nevera y te propone una comida en tres pasos.',
+      'p3.name': 'Ronroneo',
+      'p3.desc': 'Temporizador de concentración con sonidos de gato ronroneando. Cuando terminas, te da un cabezazo cariñoso.',
+      'p4.name': 'Maki Mix',
+      'p4.desc': 'Generador de paletas de colores enrolladas como un maki. Copia, pega ¡y a diseñar!',
+      'p5.name': 'Neko Nori',
+      'p5.desc': 'Notas rápidas que se pegan como una hoja de alga. Sin cuentas, sin ruido, solo texto.',
+      'p6.name': 'Grano a Grano',
+      'p6.desc': 'Un registro de hábitos en el que cada día cumplido es un grano de arroz. ¡Llena el bol antes de fin de mes!',
+      'news.title': 'Noticias',
+      'news.intro': 'Novedades, apuntes de cocina digital y algún que otro maullido.',
+      'more': 'Leer más',
+      'post1.title': '¡Hola, mundo! (y hola, gato)',
+      'post1.text': 'Abrimos las puertas de gohan.cat. Aquí encontrarás todos los proyectos reunidos en un solo bol, servidos con calma y buen humor.',
+      'post1.more': 'Leer más: ¡Hola, mundo!',
+      'post2.title': 'Cómo se cuece un proyecto a fuego lento',
+      'post2.text': 'Lavar el arroz, esperar a que absorba el agua y no destapar la olla antes de tiempo. Nuestro método de trabajo, explicado.',
+      'post2.more': 'Leer más: Cómo se cuece un proyecto a fuego lento',
+      'post3.title': 'El gato ya tiene nombre',
+      'post3.text': 'Tras largas deliberaciones (y muchas meriendas), la mascota se llama Gohan. Le gusta el arroz, dormir y nada más.',
+      'post3.more': 'Leer más: El gato ya tiene nombre',
+      'about.title': 'Sobre mí',
+      'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) significa «arroz» en japonés, pero también «comida». Y un <strong>.cat</strong>, claro, siempre lleva un gato dentro.',
+      'about.p2': 'Este es el rincón donde reúno mis proyectos y aplicaciones: herramientas pequeñas, útiles y hechas con mimo, como un buen bol de arroz blanco. Nada de estridencias, solo cosas que funcionan y que sacan una sonrisa.',
+      'fact1': 'Hecho en Cataluña',
+      'fact2': 'Cocinado a fuego lento',
+      'fact3': '100% con gato',
+      'footer.text': '© 2026 gohan.cat · Hecho con arroz, calma y ronroneos.',
+      'meow.first': '¡miau! ¿ご飯?',
+      'meow.last': '¡basta, que se me enfría el arroz!',
+      'meow.list': ['¡miau! ¿ご飯?', '¡miau! ¿ご飯?', '¡más arroz, por favor!', 'rrr, rrr…', '¡buen provecho!', '¿un poco de nori?']
+    }
+  };
+  var LANGS = ['ca', 'es'];
+  var STORE_KEY = 'gohan-lang';
+  var lang = 'ca';
+
+  function t(key) { return I18N[lang][key]; }
+
+  function readParam() {
+    try {
+      var p = new URLSearchParams(window.location.search).get('lang');
+      return p && LANGS.indexOf(p) !== -1 ? p : null;
+    } catch (e) { return null; }
+  }
+  function readStored() {
+    try {
+      var v = window.localStorage.getItem(STORE_KEY);
+      return LANGS.indexOf(v) !== -1 ? v : null;
+    } catch (e) { return null; }
+  }
+
+  function formatDate(iso) {
+    var parts = iso.split('-');
+    var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
+    try {
+      return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
+    } catch (e) { return iso; }
+  }
+
+  function applyLang(next) {
+    lang = next;
+    document.documentElement.lang = lang;
+    document.title = t('meta.title');
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var key = els[i].getAttribute('data-i18n');
+      if (els[i].tagName === 'TITLE') continue;
+      if (I18N[lang][key] != null) els[i].innerHTML = I18N[lang][key];
+    }
+    var attrEls = document.querySelectorAll('[data-i18n-attr]');
+    for (var j = 0; j < attrEls.length; j++) {
+      var pairs = attrEls[j].getAttribute('data-i18n-attr').split(';');
+      for (var k = 0; k < pairs.length; k++) {
+        var kv = pairs[k].split(':');
+        if (kv.length === 2 && I18N[lang][kv[1]] != null) attrEls[j].setAttribute(kv[0].trim(), I18N[lang][kv[1]]);
+      }
+    }
+    var times = document.querySelectorAll('time[data-i18n-date]');
+    for (var m = 0; m < times.length; m++) times[m].textContent = formatDate(times[m].getAttribute('datetime'));
+    var btns = document.querySelectorAll('.lang-switch [data-lang]');
+    for (var n = 0; n < btns.length; n++) btns[n].setAttribute('aria-pressed', btns[n].getAttribute('data-lang') === lang ? 'true' : 'false');
+  }
+
+  var switcher = document.querySelector('.lang-switch');
+  if (switcher) {
+    switcher.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('[data-lang]');
+      if (!btn) return;
+      var next = btn.getAttribute('data-lang');
+      if (next === lang) return;
+      applyLang(next);
+      try { window.localStorage.setItem(STORE_KEY, next); } catch (e) {}
+      try {
+        var url = new URL(window.location.href);
+        if (url.searchParams.has('lang')) {
+          url.searchParams.set('lang', next);
+          window.history.replaceState(null, '', url.toString());
+        }
+      } catch (e) {}
+    });
+  }
+
+  var initial = readParam() || readStored() || 'ca';
+  if (initial !== 'ca') applyLang(initial);
+
+  /* ---------- Easter egg del gat ---------- */
+  var cat = document.getElementById('cat');
+  var bubble = document.getElementById('bubble');
+  var clicks = 0, timer = null, audio = null;
+
+  function meowSound() {
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      audio = audio || new Ctx();
+      var now = audio.currentTime;
+      var o = audio.createOscillator(), g = audio.createGain(), f = audio.createBiquadFilter();
+      o.type = 'triangle';
+      f.type = 'lowpass'; f.frequency.value = 1800;
+      o.frequency.setValueAtTime(520, now);
+      o.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      o.frequency.exponentialRampToValueAtTime(420, now + 0.45);
+      g.gain.setValueAtTime(0.0001, now);
+      g.gain.exponentialRampToValueAtTime(0.12, now + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+      o.connect(f); f.connect(g); g.connect(audio.destination);
+      o.start(now); o.stop(now + 0.52);
+    } catch (e) {}
+  }
+
+  cat.addEventListener('click', function () {
+    clicks++;
+    var msgs = t('meow.list');
+    var text = clicks === 1 ? t('meow.first') :
+      clicks >= 7 ? t('meow.last') :
+      msgs[Math.floor(Math.random() * msgs.length)];
+    bubble.textContent = text;
+    bubble.classList.add('show');
+    cat.classList.remove('meow');
+    void cat.offsetWidth; // reinicia l'animació
+    cat.classList.add('meow');
+    meowSound();
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      bubble.classList.remove('show');
+      cat.classList.remove('meow');
+      if (clicks >= 7) clicks = 0;
+    }, 2200);
+  });
+})();
+</script>
+</body>
+</html>
