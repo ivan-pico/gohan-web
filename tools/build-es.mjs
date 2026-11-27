@@ -27,7 +27,7 @@ const PROJECT_META = {
   'https://overmanaging.gohan.cat/': { type: 'VideoGame', category: 'GameApplication', free: true, players: [1, 2], playMode: ['SinglePlayer', 'CoOp'], languages: ['ca', 'es'] },
   'https://overworking.gohan.cat/': { type: 'VideoGame', category: 'GameApplication', free: true, players: [1, 2], playMode: ['SinglePlayer', 'CoOp'] },
   'https://cost-ledger.gohan.cat/': { type: 'WebApplication', category: 'FinanceApplication', free: true, alternateName: 'Casa en orden' },
-  'https://viajarconcamper.com/': { type: 'WebApplication', category: 'TravelApplication', free: false, languages: ['es', 'en'] },
+  'https://viajarconcamper.com/': { type: 'WebSite', free: false, languages: ['es', 'en'] },
 };
 const PERSON = {
   '@type': 'Person',
@@ -184,11 +184,13 @@ function buildJsonLd(content, dict, lang) {
       url: p.url,
       description: stripTags(dict[p.descKey]),
       image: p.image,
-      applicationCategory: m.category || (p.kind === 'game' ? 'GameApplication' : 'WebApplication'),
-      operatingSystem: 'Web',
       author: { '@id': PERSON['@id'] },
       creator: { '@id': PERSON['@id'] },
     };
+    if (o['@type'] !== 'WebSite') {
+      o.applicationCategory = m.category || (p.kind === 'game' ? 'GameApplication' : 'WebApplication');
+      o.operatingSystem = 'Web';
+    }
     if (m.alternateName) o.alternateName = m.alternateName;
     if (m.languages) o.inLanguage = m.languages;
     if (o['@type'] === 'VideoGame') {
