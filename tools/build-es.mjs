@@ -162,6 +162,15 @@ function readContent(html) {
   return { projects, news };
 }
 
+// Data ISO 8601 amb hora i zona (Europe/Madrid), com demana Google: 2026-11-26 -> 2026-11-26T12:00:00+01:00
+const lastSunday = (y, m) => { const d = new Date(Date.UTC(y, m + 1, 0)); return d.getUTCDate() - d.getUTCDay(); };
+function isoDateTime(d) {
+  if (!d || d.includes('T')) return d;
+  const [y, m, day] = d.split('-').map(Number);
+  const summer = (m > 3 && m < 10) || (m === 3 && day >= lastSunday(y, 2)) || (m === 10 && day < lastSunday(y, 9));
+  return `${d}T12:00:00${summer ? '+02:00' : '+01:00'}`;
+}
+
 function buildJsonLd(content, dict, lang) {
   const page = PAGES[lang];
   const ogImage = dict['meta.ogimage'] || SITE + 'img/og-image.png';
@@ -198,8 +207,8 @@ function buildJsonLd(content, dict, lang) {
       '@id': page + '#' + n.id,
       url: page + '#' + n.id,
       headline: stripTags(dict[n.titleKey]),
-      datePublished: n.date,
-      dateModified: n.date,
+      datePublished: isoDateTime(n.date),
+      dateModified: isoDateTime(n.date),
       inLanguage: lang,
       author: { '@id': PERSON['@id'] },
       publisher: { '@id': PERSON['@id'] },
@@ -239,7 +248,7 @@ function buildJsonLd(content, dict, lang) {
         about: { '@id': PERSON['@id'] },
         primaryImageOfPage: { '@type': 'ImageObject', url: ogImage, width: 1200, height: 630 },
         mainEntity: { '@id': page + '#projectes' },
-        dateModified: LASTMOD,
+        dateModified: isoDateTime(LASTMOD),
       },
       {
         '@type': 'ItemList',
