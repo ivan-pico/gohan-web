@@ -157,7 +157,6 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .projects{background:linear-gradient(var(--cream),var(--bg))}
 .grid{display:grid;gap:1rem;grid-template-columns:1fr;list-style:none;margin:0;padding:0}
 @media (min-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
-@media (min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
 .card{
   position:relative;height:100%;background:var(--paper);border:1.5px solid var(--pearl);border-radius:var(--radius);
   padding:1.4rem 1.4rem 1.3rem;box-shadow:var(--shadow);transition:transform .25s, border-color .25s, box-shadow .25s;
@@ -168,25 +167,47 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--bg);border:1.5px solid var(--pearl)}
 .icon svg{width:36px;height:36px}
 .tag{font-size:.75rem;font-weight:700;letter-spacing:.04em;padding:.25rem .65rem;border-radius:999px;border:1.5px dashed var(--pearl-2);color:var(--ink-soft);background:var(--bg)}
-.tag.cooking{border-style:solid;border-color:var(--nori-soft);background:#EEF3EA;color:var(--nori)}
+.tag.ok{border-style:solid;border-color:var(--nori-soft);background:#EEF3EA;color:var(--nori)}
 .card h3{font-size:1.25rem;margin-top:.35rem}
 .card h3 small{display:block;font-size:.78rem;font-weight:500;color:var(--ink-soft);letter-spacing:.06em;margin-top:.15rem}
 .card p{color:var(--ink-soft);font-size:.98rem}
+.card p.domain{margin-top:auto;padding-top:.3rem;font-size:.8rem;font-weight:500;letter-spacing:.02em;color:var(--ink-soft)}
+.card-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem}
+.card-open{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.92rem;text-decoration:none;padding:.55rem 1rem;border-radius:999px;background:var(--ink);color:var(--bg);transition:background .2s}
+.card-open svg{width:15px;height:15px}
+.card-open::after{content:"";position:absolute;inset:0;border-radius:var(--radius);z-index:1}
+.card:hover .card-open{background:var(--hanko)}
+.card:has(.card-open:focus-visible){outline:3px solid var(--hanko);outline-offset:3px}
+.card-news{position:relative;z-index:2;font-size:.88rem;font-weight:700;color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--pearl-2);text-underline-offset:3px;padding:.2rem 0}
+.card-news:hover{color:var(--hanko);text-decoration-color:currentColor}
 
 /* Notícies */
 .posts{display:grid;gap:1rem;grid-template-columns:1fr}
-@media (min-width:860px){.posts{grid-template-columns:repeat(3,1fr);gap:1.25rem}}
-.post{background:var(--paper);border:1.5px solid var(--pearl);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.post{background:var(--paper);border:1.5px solid var(--pearl);border-radius:var(--radius);padding:1.6rem 1.5rem 1.4rem;display:grid;gap:.5rem 2rem;box-shadow:var(--shadow);position:relative;overflow:hidden;scroll-margin-top:calc(var(--header-offset,80px) + 12px)}
 .post::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--ear))}
-.post:nth-child(2){--accent:var(--nori-soft)}
-.post:nth-child(3){--accent:var(--pearl-2)}
+.post:nth-child(4n+2){--accent:var(--nori-soft)}
+.post:nth-child(4n+3){--accent:var(--pearl-2)}
+.post:nth-child(4n+4){--accent:var(--rice-glow)}
+.post-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .8rem}
 .post time{font-size:.85rem;font-weight:700;color:var(--hanko);letter-spacing:.02em}
+.post-project{font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:.15rem .6rem;border-radius:999px;background:var(--bg);border:1.5px solid var(--pearl);color:var(--ink-soft)}
+.post-body{display:flex;flex-direction:column;gap:.7rem;max-width:72ch}
 .post h3{font-size:1.25rem}
-.post h3 a{text-decoration:none;background-image:linear-gradient(var(--rice-glow),var(--rice-glow));background-size:0 .35em;background-position:0 88%;background-repeat:no-repeat;transition:background-size .3s}
-.post h3 a:hover{background-size:100% .35em}
 .post p{color:var(--ink-soft);font-size:.98rem}
-.post .more{margin-top:auto;font-weight:700;font-size:.92rem;color:var(--ink);text-decoration:none;display:inline-flex;gap:.35rem;align-items:center}
-.post .more:hover{color:var(--hanko)}
+.post-more summary{display:inline-flex;align-items:center;gap:.35rem;font-weight:700;font-size:.92rem;color:var(--ink);cursor:pointer;list-style:none;padding:.25rem 0;border-radius:8px}
+.post-more summary::-webkit-details-marker{display:none}
+.post-more summary:hover{color:var(--hanko)}
+.post-more summary svg{width:16px;height:16px;transition:transform .25s}
+.post-more[open] summary svg{transform:rotate(180deg)}
+.post-more .when-open,.post-more[open] .when-closed{display:none}
+.post-more[open] .when-open{display:inline}
+.post-full{display:flex;flex-direction:column;gap:.85rem;margin-top:.6rem;padding-top:1rem;border-top:1.5px dashed var(--pearl)}
+.post-full .btn{align-self:flex-start;padding:.6rem 1.1rem;font-size:.92rem;margin-top:.2rem}
+.post-full .btn svg{width:15px;height:15px}
+@media (min-width:860px){
+  .post{grid-template-columns:11rem 1fr;padding:1.8rem 2rem 1.6rem}
+  .post-meta{flex-direction:column;align-items:flex-start;padding-top:.2rem}
+}
 
 /* Sobre */
 .about-card{display:grid;gap:1.75rem;align-items:center;background:var(--paper);border:1.5px solid var(--pearl);border-radius:32px;padding:clamp(1.5rem,4vw,3rem);box-shadow:var(--shadow)}
@@ -261,6 +282,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
     </symbol>
 
     <symbol id="arrow" viewBox="0 0 20 20"><path d="M4 10h11m-4-4.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ext" viewBox="0 0 20 20"><path d="M7 4.5h8.5V13M15 5 5 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="chev" viewBox="0 0 20 20"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 
     <clipPath id="bowlClip">
       <path d="M58 270a152 24 0 0 0 304 0c0 66-62 102-152 102S58 336 58 270z"/>
@@ -423,79 +446,75 @@ section{scroll-margin-top:var(--header-offset,80px)}
     <div class="wrap">
       <div class="section-head">
         <h2 id="projectes-title"><span data-i18n="projects.title">Projectes</span> <span class="ja" lang="ja">プロジェクト</span></h2>
-        <p data-i18n="projects.intro">Petites aplicacions que es couen a foc lent. Encara són a la cassola, però ja fan bona olor.</p>
+        <p data-i18n="projects.intro">Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en el seu propi subdomini.</p>
       </div>
-      <ul class="grid cols-3">
+      <ul class="grid">
         <li>
           <article class="card">
             <div class="card-top">
               <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><path d="M20 6c3 0 5 2 7 5l7 13c3 6-1 11-7 11H13c-6 0-10-5-7-11l7-13c2-3 4-5 7-5z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="14" y="25" width="12" height="10" rx="1.5" fill="#4F6B4C"/><circle cx="16.5" cy="18" r="1.4" fill="#3A332D"/><circle cx="23.5" cy="18" r="1.4" fill="#3A332D"/><path d="M19 21h2l-1 1.2z" fill="#B09A84"/></svg>
+                <svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 0 1 3-3h7l3 3h14a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="10" y="7" width="20" height="17" rx="2" fill="#fff" stroke="#3A332D" stroke-width="2"/><path d="M14 11.5h12M14 15.5h8" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"/><path d="M5 19h30v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 25.5l3.5 3.5 7-7" fill="none" stroke="#C8372D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="tag cooking" data-i18n="tag.cooking">Al foc</span>
+              <span class="tag ok" data-i18n="tag.available">Disponible</span>
             </div>
-            <h3><span data-i18n="p1.name">Miaunigiri</span> <small lang="ja">おにぎり</small></h3>
-            <p data-i18n="p1.desc">Una capsa d'eines diminutes en forma de triangle: conversors, comptadors i altres utilitats de butxaca.</p>
+            <h3>Overmanaging <small lang="ja">管理</small></h3>
+            <p data-i18n="om.card">Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.</p>
+            <p class="domain">overmanaging.gohan.cat</p>
+            <div class="card-actions">
+              <a class="card-open" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overmanaging<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              <a class="card-news" href="#noticia-overmanaging"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Overmanaging</span></a>
+            </div>
           </article>
         </li>
         <li>
           <article class="card">
             <div class="card-top">
               <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M15 12c-2-2 2-4 0-6"/><path d="M25 12c-2-2 2-4 0-6"/></g><path d="M5 19a15 3.5 0 0 0 30 0c0 9-6 15-15 15S5 28 5 19z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><ellipse cx="20" cy="19" rx="15" ry="3.5" fill="#FCFAF5" stroke="#3A332D" stroke-width="2.2"/><path d="M7 24c6 2.5 20 2.5 26 0" stroke="#C8372D" stroke-width="2.4" fill="none"/></svg>
+                <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
               </div>
-              <span class="tag" data-i18n="tag.soon">Properament</span>
+              <span class="tag ok" data-i18n="tag.available">Disponible</span>
             </div>
-            <h3><span data-i18n="p2.name">Bol de Bigotis</span> <small lang="ja">どんぶり</small></h3>
-            <p data-i18n="p2.desc">Un receptari per a gent mandrosa: tria què tens a la nevera i et proposa un àpat en tres passos.</p>
+            <h3>Overworking <small lang="ja">残業</small></h3>
+            <p data-i18n="ow.card">Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.</p>
+            <p class="domain">overworking.gohan.cat</p>
+            <div class="card-actions">
+              <a class="card-open" href="https://overworking.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overworking<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              <a class="card-news" href="#noticia-overworking"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Overworking</span></a>
+            </div>
           </article>
         </li>
         <li>
           <article class="card">
             <div class="card-top">
               <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><g fill="#EFE6D3" stroke="#3A332D" stroke-width="2"><ellipse cx="20" cy="26" rx="8" ry="7"/><ellipse cx="10" cy="17" rx="3.2" ry="4"/><ellipse cx="16" cy="11" rx="3.2" ry="4"/><ellipse cx="24" cy="11" rx="3.2" ry="4"/><ellipse cx="30" cy="17" rx="3.2" ry="4"/></g></svg>
+                <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
               </div>
-              <span class="tag" data-i18n="tag.soon">Properament</span>
+              <span class="tag ok" data-i18n="tag.available">Disponible</span>
             </div>
-            <h3><span data-i18n="p3.name">Ronroneig</span> <small lang="ja">ごろごろ</small></h3>
-            <p data-i18n="p3.desc">Temporitzador de concentració amb sons de gat que ronca. Quan acabes, et fa un cop de cap.</p>
+            <h3>Cost-Ledger <small lang="es">Casa en orden</small></h3>
+            <p data-i18n="cl.card">Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.</p>
+            <p class="domain">cost-ledger.gohan.cat</p>
+            <div class="card-actions">
+              <a class="card-open" href="https://cost-ledger.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Cost-Ledger<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              <a class="card-news" href="#noticia-cost-ledger"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Cost-Ledger</span></a>
+            </div>
           </article>
         </li>
         <li>
           <article class="card">
             <div class="card-top">
               <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="#4F6B4C" stroke="#3A332D" stroke-width="2.2"/><circle cx="20" cy="20" r="9.5" fill="#fff"/><circle cx="20" cy="20" r="4" fill="#C8372D"/><path d="M14 17l2 1M24 15l1 2M23 25l2-1M14 24l2-1" stroke="#CFC6B6" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
               </div>
-              <span class="tag" data-i18n="tag.soon">Properament</span>
+              <span class="tag ok" data-i18n="tag.available">Disponible</span>
             </div>
-            <h3><span data-i18n="p4.name">Maki Mix</span> <small lang="ja">まきずし</small></h3>
-            <p data-i18n="p4.desc">Generador de paletes de colors enrotllades com un maki. Copia, enganxa i a dissenyar.</p>
-          </article>
-        </li>
-        <li>
-          <article class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><rect x="9" y="6" width="22" height="28" rx="3" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M9 11 13 6M31 11l-4-5" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/><rect x="9" y="26" width="22" height="8" rx="2" fill="#DCE5D5" stroke="#3A332D" stroke-width="2.2"/><path d="M14 15h12M14 20h8" stroke="#CFC6B6" stroke-width="2.2" stroke-linecap="round"/></svg>
-              </div>
-              <span class="tag" data-i18n="tag.soon">Properament</span>
+            <h3>Viajar con Camper <small lang="ja">旅</small></h3>
+            <p data-i18n="vc.card">Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.</p>
+            <p class="domain">viajarconcamper.gohan.cat</p>
+            <div class="card-actions">
+              <a class="card-open" href="https://viajarconcamper.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              <a class="card-news" href="#noticia-viajarconcamper"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Viajar con Camper</span></a>
             </div>
-            <h3><span data-i18n="p5.name">Neko Nori</span> <small lang="ja">ねこのり</small></h3>
-            <p data-i18n="p5.desc">Notes ràpides que s'enganxen com una fulla d'alga. Sense comptes, sense soroll, només text.</p>
-          </article>
-        </li>
-        <li>
-          <article class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><g stroke-linecap="round"><path d="M8 32 30 8" stroke="#3A332D" stroke-width="5"/><path d="M8 32 30 8" stroke="#E9D5B5" stroke-width="2.4"/><path d="M14 34 34 13" stroke="#3A332D" stroke-width="5"/><path d="M14 34 34 13" stroke="#E9D5B5" stroke-width="2.4"/></g><ellipse cx="25" cy="27" rx="3" ry="4.6" transform="rotate(35 25 27)" fill="#fff" stroke="#3A332D" stroke-width="1.8"/></svg>
-              </div>
-              <span class="tag" data-i18n="tag.soon">Properament</span>
-            </div>
-            <h3><span data-i18n="p6.name">Gra a Gra</span> <small lang="ja">いちりゅう</small></h3>
-            <p data-i18n="p6.desc">Un seguidor d'hàbits on cada dia complert és un gra d'arròs. Omple el bol abans de final de mes!</p>
           </article>
         </li>
       </ul>
@@ -507,26 +526,94 @@ section{scroll-margin-top:var(--header-offset,80px)}
     <div class="wrap">
       <div class="section-head">
         <h2 id="noticies-title"><span data-i18n="news.title">Notícies</span> <span class="ja" lang="ja">お知らせ</span></h2>
-        <p data-i18n="news.intro">Novetats, apunts de cuina digital i alguna miolada ocasional.</p>
+        <p data-i18n="news.intro">Llançaments i novetats de cada projecte.</p>
       </div>
       <div class="posts">
-        <article class="post">
-          <time datetime="2026-11-26" data-i18n-date>26 de novembre de 2026</time>
-          <h3><a href="#noticies" data-i18n="post1.title">Hola, món! (i hola, gat)</a></h3>
-          <p data-i18n="post1.text">Obrim les portes de gohan.cat. Aquí trobaràs tots els projectes reunits en un sol bol, servits amb calma i bon humor.</p>
-          <a class="more" href="#noticies" aria-label="Llegeix més: Hola, món!" data-i18n-attr="aria-label:post1.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <article class="post" id="noticia-overmanaging" aria-labelledby="nt-om">
+          <div class="post-meta">
+            <time datetime="2026-11-27" data-i18n-date>27 de novembre de 2026</time>
+            <span class="post-project">Overmanaging</span>
+          </div>
+          <div class="post-body">
+            <h3 id="nt-om" data-i18n="om.title">OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT</h3>
+            <p data-i18n="om.sum">Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.</p>
+            <details class="post-more">
+              <summary aria-describedby="nt-om"><span class="when-closed" data-i18n="more">Llegeix més</span><span class="when-open" data-i18n="less">Amaga el text</span> <svg aria-hidden="true"><use href="#chev"/></svg></summary>
+              <div class="post-full">
+                <p data-i18n="om.b1">OVERMANAGING és un joc cooperatiu d'estil «cuina frenètica» en què fas de Project Manager IT. La cua de comandes és la teva agenda del dia: revisar el pressupost, la reunió d'equip, el seguiment amb el client, el comitè de direcció, trucades i one-to-ones. Per a cada cita cal preparar un dossier: agafar l'encàrrec, redactar-lo al portàtil, imprimir-lo, signar-lo, posar-lo a la carpeta i portar-lo a la sala de reunions.</p>
+                <p data-i18n="om.b2">Tot plegat mentre la impressora s'encalla i crema, les notificacions bloquegen les taules, el cafè s'acaba i el CEO apareix amb «una ideeta ràpida». Hi ha cinc nivells, de la startup al tancament de trimestre, que es trien en un roadmap en forma de diagrama de Gantt, amb estrelles i progrés desat. Es pot jugar sol, alternant entre dos PM, o en cooperatiu local amb teclat o comandaments.</p>
+                <p data-i18n="om.b3">Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni compilació: tots els gràfics es dibuixen per codi i la música i els efectes se sintetitzen amb WebAudio. És bilingüe, instal·lable com a PWA i inclou un panell d'ajustos de dificultat per a desenvolupadors.</p>
+                <a class="btn btn-ghost" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overmanaging<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              </div>
+            </details>
+          </div>
         </article>
-        <article class="post">
-          <time datetime="2026-11-12" data-i18n-date>12 de novembre de 2026</time>
-          <h3><a href="#noticies" data-i18n="post2.title">Com es cou un projecte a foc lent</a></h3>
-          <p data-i18n="post2.text">Rentar l'arròs, esperar que absorbeixi l'aigua i no destapar l'olla abans d'hora. El nostre mètode de treball, explicat.</p>
-          <a class="more" href="#noticies" aria-label="Llegeix més: Com es cou un projecte a foc lent" data-i18n-attr="aria-label:post2.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <article class="post" id="noticia-overworking" aria-labelledby="nt-ow">
+          <div class="post-meta">
+            <time datetime="2026-11-27" data-i18n-date>27 de novembre de 2026</time>
+            <span class="post-project">Overworking</span>
+          </div>
+          <div class="post-body">
+            <h3 id="nt-ow" data-i18n="ow.title">OVERWORKING: el caos d'una oficina de programadors convertit en joc cooperatiu</h3>
+            <p data-i18n="ow.sum">Ja es pot jugar a OVERWORKING, un joc cooperatiu a contrarellotge per al navegador on cal servir features als clients abans que s'acabi el temps. Per a 1 o 2 jugadors, amb teclat o comandament.</p>
+            <details class="post-more">
+              <summary aria-describedby="nt-ow"><span class="when-closed" data-i18n="more">Llegeix més</span><span class="when-open" data-i18n="less">Amaga el text</span> <svg aria-hidden="true"><use href="#chev"/></svg></summary>
+              <div class="post-full">
+                <p data-i18n="ow.b1">OVERWORKING és un joc cooperatiu d'estil «cuina frenètica» ambientat en una oficina de programadors. Els «plats» són features que demanen els clients: cal agafar l'spec de la impressora, programar-la a l'escriptori, compilar-la al servidor de build, testejar-la, ficar-la en un Pull Request i desplegar-la abans que caduqui el tiquet. Tot plegat mentre els servidors s'encenen per un SEGFAULT, s'escapen bugs, s'acaba el cafè i el mànager pregunta si tens «5 minutets».</p>
+                <p data-i18n="ow.b2">El joc té cinc nivells, des del Garatge (amb tutorial guiat) fins al Divendres 17:59 · Deploy Day, quatre dificultats (Becari, Júnior, Sènior i Rockstar) i puntuació d'una a tres estrelles. Es pot jugar sol, alternant entre dos devs, o en cooperatiu local per a dos, amb teclat o comandament. El progrés es desa al navegador.</p>
+                <p data-i18n="ow.b3">Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni procés de compilació: tots els gràfics i l'àudio es generen per codi (Web Audio). Inclou suport per a comandaments (Gamepad API), manifest d'aplicació instal·lable i un panell de desenvolupador (F9) per ajustar l'equilibri del joc en temps real.</p>
+                <a class="btn btn-ghost" href="https://overworking.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overworking<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              </div>
+            </details>
+          </div>
         </article>
-        <article class="post">
-          <time datetime="2026-11-03" data-i18n-date>3 de novembre de 2026</time>
-          <h3><a href="#noticies" data-i18n="post3.title">El gat ja té nom</a></h3>
-          <p data-i18n="post3.text">Després de llargues deliberacions (i molts berenars), la mascota es diu Gohan. Li agrada l'arròs, dormir i res més.</p>
-          <a class="more" href="#noticies" aria-label="Llegeix més: El gat ja té nom" data-i18n-attr="aria-label:post3.more"><span data-i18n="more">Llegeix més</span> <svg width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <article class="post" id="noticia-cost-ledger" aria-labelledby="nt-cl">
+          <div class="post-meta">
+            <time datetime="2026-11-24" data-i18n-date>24 de novembre de 2026</time>
+            <span class="post-project">Cost-Ledger</span>
+          </div>
+          <div class="post-body">
+            <h3 id="nt-cl" data-i18n="cl.title">Casa en orden: els comptes de casa, privats i al navegador</h3>
+            <p data-i18n="cl.sum">Publiquem Casa en orden, una aplicació web per portar l'economia familiar que guarda totes les dades xifrades al dispositiu, sense comptes al núvol ni servidor.</p>
+            <details class="post-more">
+              <summary aria-describedby="nt-cl"><span class="when-closed" data-i18n="more">Llegeix més</span><span class="when-open" data-i18n="less">Amaga el text</span> <svg aria-hidden="true"><use href="#chev"/></svg></summary>
+              <div class="post-full">
+                <p data-i18n="cl.b1">Casa en orden és una aplicació per registrar els moviments econòmics de la llar. Permet anotar una despesa en segons (import, categoria i data), afegir ingressos, assignar-los a «àmbits» per seguir per separat una activitat concreta i consultar un tauler amb ingressos, despeses, saldo i distribució per categories, amb filtres per període, tipus, categoria i text. També admet regles recurrents (diàries, setmanals, mensuals o anuals) que generen automàticament els moviments vençuts.</p>
+                <p data-i18n="cl.b2">L'objectiu és la senzillesa i la privacitat: no hi ha contrasenya ni núvol. Cada espai s'identifica amb un àlies i un correu, i les dades es xifren al navegador. Inclou versions locals restaurables, còpies de seguretat en ZIP (xifrades o no), importació per substituir o afegir dades, exportació a CSV i Excel i un esborrat complet.</p>
+                <p data-i18n="cl.b3">Està feta amb React, TypeScript i Vite, amb Tailwind CSS, icones Lucide i Wouter per a la navegació. El xifratge usa la Web Crypto API (PBKDF2 i AES-GCM) sobre localStorage, i l'exportació a Excel fa servir SheetJS. És una aplicació estàtica que funciona íntegrament al client.</p>
+                <a class="btn btn-ghost" href="https://cost-ledger.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Cost-Ledger<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="post" id="noticia-viajarconcamper" aria-labelledby="nt-vc">
+          <div class="post-meta">
+            <time datetime="2026-11-04" data-i18n-date>4 de novembre de 2026</time>
+            <span class="post-project">Viajar con Camper</span>
+          </div>
+          <div class="post-body">
+            <h3 id="nt-vc" data-i18n="vc.title">Viajar con Camper: el web per llogar una camper i recórrer Europa</h3>
+            <p data-i18n="vc.sum">Un web bilingüe per presentar i reservar una furgoneta camper equipada, amb calendari de temporades i càlcul automàtic del preu del lloguer.</p>
+            <details class="post-more">
+              <summary aria-describedby="nt-vc"><span class="when-closed" data-i18n="more">Llegeix més</span><span class="when-open" data-i18n="less">Amaga el text</span> <svg aria-hidden="true"><use href="#chev"/></svg></summary>
+              <div class="post-full">
+                <p data-i18n="vc.b1">Viajar con Camper és el web d'un servei de lloguer de furgoneta camper amb sortida des de Barcelona. Mostra el vehicle i el seu equipament amb una galeria de fotos, proposa destinacions per fer-hi ruta (Costa Amalfitana, Toscana, Costa Brava, Algarve, Provença, Cinque Terre i Dolomites) i inclou pàgines de tarifes i textos legals (privacitat, cookies, avís legal i condicions).</p>
+                <p data-i18n="vc.b2">L'objectiu és que el client pugui consultar preus i enviar una sol·licitud de reserva en pocs minuts. Un calendari distingeix temporada alta, mitjana i baixa, amb un preu per dia per a cadascuna; el formulari de reserva calcula el total segons les dates triades, exigeix un mínim de quatre dies i recull dades de viatgers, conductor, mascota i cadiretes infantils. Tot el contingut està en castellà i anglès.</p>
+                <p data-i18n="vc.b3">S'ha desenvolupat amb React 18, TypeScript i Vite, amb Tailwind CSS i components shadcn/ui (Radix), React Router, react-day-picker i date-fns per als calendaris, i react-helmet-async per al SEO amb dades estructurades. Les sol·licituds s'envien a MailerLite, amb hCaptcha, i hi ha un bàner de consentiment de cookies. El projecte va néixer amb Lovable.</p>
+                <a class="btn btn-ghost" href="https://viajarconcamper.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="post" id="noticia-gohan-cat" aria-labelledby="nt-hello">
+          <div class="post-meta">
+            <time datetime="2026-11-26" data-i18n-date>26 de novembre de 2026</time>
+            <span class="post-project">gohan.cat</span>
+          </div>
+          <div class="post-body">
+            <h3 id="nt-hello" data-i18n="hello.title">Obrim gohan.cat</h3>
+            <p data-i18n="hello.sum">Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té el seu propi subdomini, i aquí en publicaré l'estat i les novetats de cada llançament.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -590,33 +677,41 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Fes una moixaina al gat',
       'cat.hint': 'Psst… prova de fer-li una moixaina.',
       'projects.title': 'Projectes',
-      'projects.intro': 'Petites aplicacions que es couen a foc lent. Encara són a la cassola, però ja fan bona olor.',
-      'tag.cooking': 'Al foc',
-      'tag.soon': 'Properament',
-      'p1.name': 'Miaunigiri',
-      'p1.desc': "Una capsa d'eines diminutes en forma de triangle: conversors, comptadors i altres utilitats de butxaca.",
-      'p2.name': 'Bol de Bigotis',
-      'p2.desc': 'Un receptari per a gent mandrosa: tria què tens a la nevera i et proposa un àpat en tres passos.',
-      'p3.name': 'Ronroneig',
-      'p3.desc': 'Temporitzador de concentració amb sons de gat que ronca. Quan acabes, et fa un cop de cap.',
-      'p4.name': 'Maki Mix',
-      'p4.desc': 'Generador de paletes de colors enrotllades com un maki. Copia, enganxa i a dissenyar.',
-      'p5.name': 'Neko Nori',
-      'p5.desc': "Notes ràpides que s'enganxen com una fulla d'alga. Sense comptes, sense soroll, només text.",
-      'p6.name': 'Gra a Gra',
-      'p6.desc': "Un seguidor d'hàbits on cada dia complert és un gra d'arròs. Omple el bol abans de final de mes!",
+      'projects.intro': "Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en el seu propi subdomini.",
+      'tag.available': "Disponible",
+      'card.open': "Obre l'app",
+      'card.news': "Llegeix la notícia",
+      'newtab': " (s'obre en una pestanya nova)",
+      'om.card': "Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.",
+      'ow.card': "Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.",
+      'cl.card': "Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.",
+      'vc.card': "Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.",
       'news.title': 'Notícies',
-      'news.intro': 'Novetats, apunts de cuina digital i alguna miolada ocasional.',
-      'more': 'Llegeix més',
-      'post1.title': 'Hola, món! (i hola, gat)',
-      'post1.text': 'Obrim les portes de gohan.cat. Aquí trobaràs tots els projectes reunits en un sol bol, servits amb calma i bon humor.',
-      'post1.more': 'Llegeix més: Hola, món!',
-      'post2.title': 'Com es cou un projecte a foc lent',
-      'post2.text': "Rentar l'arròs, esperar que absorbeixi l'aigua i no destapar l'olla abans d'hora. El nostre mètode de treball, explicat.",
-      'post2.more': 'Llegeix més: Com es cou un projecte a foc lent',
-      'post3.title': 'El gat ja té nom',
-      'post3.text': "Després de llargues deliberacions (i molts berenars), la mascota es diu Gohan. Li agrada l'arròs, dormir i res més.",
-      'post3.more': 'Llegeix més: El gat ja té nom',
+      'news.intro': "Llançaments i novetats de cada projecte.",
+      'more': "Llegeix més",
+      'less': "Amaga el text",
+      'om.title': "OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT",
+      'om.sum': "Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.",
+      'om.b1': "OVERMANAGING és un joc cooperatiu d'estil «cuina frenètica» en què fas de Project Manager IT. La cua de comandes és la teva agenda del dia: revisar el pressupost, la reunió d'equip, el seguiment amb el client, el comitè de direcció, trucades i one-to-ones. Per a cada cita cal preparar un dossier: agafar l'encàrrec, redactar-lo al portàtil, imprimir-lo, signar-lo, posar-lo a la carpeta i portar-lo a la sala de reunions.",
+      'om.b2': "Tot plegat mentre la impressora s'encalla i crema, les notificacions bloquegen les taules, el cafè s'acaba i el CEO apareix amb «una ideeta ràpida». Hi ha cinc nivells, de la startup al tancament de trimestre, que es trien en un roadmap en forma de diagrama de Gantt, amb estrelles i progrés desat. Es pot jugar sol, alternant entre dos PM, o en cooperatiu local amb teclat o comandaments.",
+      'om.b3': "Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni compilació: tots els gràfics es dibuixen per codi i la música i els efectes se sintetitzen amb WebAudio. És bilingüe, instal·lable com a PWA i inclou un panell d'ajustos de dificultat per a desenvolupadors.",
+      'ow.title': "OVERWORKING: el caos d'una oficina de programadors convertit en joc cooperatiu",
+      'ow.sum': "Ja es pot jugar a OVERWORKING, un joc cooperatiu a contrarellotge per al navegador on cal servir features als clients abans que s'acabi el temps. Per a 1 o 2 jugadors, amb teclat o comandament.",
+      'ow.b1': "OVERWORKING és un joc cooperatiu d'estil «cuina frenètica» ambientat en una oficina de programadors. Els «plats» són features que demanen els clients: cal agafar l'spec de la impressora, programar-la a l'escriptori, compilar-la al servidor de build, testejar-la, ficar-la en un Pull Request i desplegar-la abans que caduqui el tiquet. Tot plegat mentre els servidors s'encenen per un SEGFAULT, s'escapen bugs, s'acaba el cafè i el mànager pregunta si tens «5 minutets».",
+      'ow.b2': "El joc té cinc nivells, des del Garatge (amb tutorial guiat) fins al Divendres 17:59 · Deploy Day, quatre dificultats (Becari, Júnior, Sènior i Rockstar) i puntuació d'una a tres estrelles. Es pot jugar sol, alternant entre dos devs, o en cooperatiu local per a dos, amb teclat o comandament. El progrés es desa al navegador.",
+      'ow.b3': "Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni procés de compilació: tots els gràfics i l'àudio es generen per codi (Web Audio). Inclou suport per a comandaments (Gamepad API), manifest d'aplicació instal·lable i un panell de desenvolupador (F9) per ajustar l'equilibri del joc en temps real.",
+      'cl.title': "Casa en orden: els comptes de casa, privats i al navegador",
+      'cl.sum': "Publiquem Casa en orden, una aplicació web per portar l'economia familiar que guarda totes les dades xifrades al dispositiu, sense comptes al núvol ni servidor.",
+      'cl.b1': "Casa en orden és una aplicació per registrar els moviments econòmics de la llar. Permet anotar una despesa en segons (import, categoria i data), afegir ingressos, assignar-los a «àmbits» per seguir per separat una activitat concreta i consultar un tauler amb ingressos, despeses, saldo i distribució per categories, amb filtres per període, tipus, categoria i text. També admet regles recurrents (diàries, setmanals, mensuals o anuals) que generen automàticament els moviments vençuts.",
+      'cl.b2': "L'objectiu és la senzillesa i la privacitat: no hi ha contrasenya ni núvol. Cada espai s'identifica amb un àlies i un correu, i les dades es xifren al navegador. Inclou versions locals restaurables, còpies de seguretat en ZIP (xifrades o no), importació per substituir o afegir dades, exportació a CSV i Excel i un esborrat complet.",
+      'cl.b3': "Està feta amb React, TypeScript i Vite, amb Tailwind CSS, icones Lucide i Wouter per a la navegació. El xifratge usa la Web Crypto API (PBKDF2 i AES-GCM) sobre localStorage, i l'exportació a Excel fa servir SheetJS. És una aplicació estàtica que funciona íntegrament al client.",
+      'vc.title': "Viajar con Camper: el web per llogar una camper i recórrer Europa",
+      'vc.sum': "Un web bilingüe per presentar i reservar una furgoneta camper equipada, amb calendari de temporades i càlcul automàtic del preu del lloguer.",
+      'vc.b1': "Viajar con Camper és el web d'un servei de lloguer de furgoneta camper amb sortida des de Barcelona. Mostra el vehicle i el seu equipament amb una galeria de fotos, proposa destinacions per fer-hi ruta (Costa Amalfitana, Toscana, Costa Brava, Algarve, Provença, Cinque Terre i Dolomites) i inclou pàgines de tarifes i textos legals (privacitat, cookies, avís legal i condicions).",
+      'vc.b2': "L'objectiu és que el client pugui consultar preus i enviar una sol·licitud de reserva en pocs minuts. Un calendari distingeix temporada alta, mitjana i baixa, amb un preu per dia per a cadascuna; el formulari de reserva calcula el total segons les dates triades, exigeix un mínim de quatre dies i recull dades de viatgers, conductor, mascota i cadiretes infantils. Tot el contingut està en castellà i anglès.",
+      'vc.b3': "S'ha desenvolupat amb React 18, TypeScript i Vite, amb Tailwind CSS i components shadcn/ui (Radix), React Router, react-day-picker i date-fns per als calendaris, i react-helmet-async per al SEO amb dades estructurades. Les sol·licituds s'envien a MailerLite, amb hCaptcha, i hi ha un bàner de consentiment de cookies. El projecte va néixer amb Lovable.",
+      'hello.title': "Obrim gohan.cat",
+      'hello.sum': "Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té el seu propi subdomini, i aquí en publicaré l'estat i les novetats de cada llançament.",
       'about.title': 'Sobre',
       'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.',
       'about.p2': "Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.",
@@ -645,33 +740,41 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Hazle una caricia al gato',
       'cat.hint': 'Psst… prueba a hacerle una caricia.',
       'projects.title': 'Proyectos',
-      'projects.intro': 'Pequeñas aplicaciones que se cuecen a fuego lento. Todavía están en la cazuela, pero ya huelen de maravilla.',
-      'tag.cooking': 'Al fuego',
-      'tag.soon': 'Próximamente',
-      'p1.name': 'Miaunigiri',
-      'p1.desc': 'Una caja de herramientas diminutas con forma de triángulo: conversores, contadores y otras utilidades de bolsillo.',
-      'p2.name': 'Bol de Bigotes',
-      'p2.desc': 'Un recetario para gente perezosa: elige lo que tienes en la nevera y te propone una comida en tres pasos.',
-      'p3.name': 'Ronroneo',
-      'p3.desc': 'Temporizador de concentración con sonidos de gato ronroneando. Cuando terminas, te da un cabezazo cariñoso.',
-      'p4.name': 'Maki Mix',
-      'p4.desc': 'Generador de paletas de colores enrolladas como un maki. Copia, pega ¡y a diseñar!',
-      'p5.name': 'Neko Nori',
-      'p5.desc': 'Notas rápidas que se pegan como una hoja de alga. Sin cuentas, sin ruido, solo texto.',
-      'p6.name': 'Grano a Grano',
-      'p6.desc': 'Un registro de hábitos en el que cada día cumplido es un grano de arroz. ¡Llena el bol antes de fin de mes!',
+      'projects.intro': "Juegos y aplicaciones web que he desarrollado. Cada proyecto se abre en su propio subdominio.",
+      'tag.available': "Disponible",
+      'card.open': "Abrir la app",
+      'card.news': "Leer la noticia",
+      'newtab': " (se abre en una pestaña nueva)",
+      'om.card': "Juego cooperativo frenético para 1–2 jugadores: eres Project Manager IT y debes preparar dossieres, apagar impresoras en llamas y cumplir la agenda antes de que caduque.",
+      'ow.card': "Juego cooperativo frenético para 1 o 2 jugadores en una oficina de programadores: programa, compila, testea y despliega features antes de que caduque el ticket o arda el servidor.",
+      'cl.card': "Libreta de economía doméstica para apuntar ingresos y gastos, ver su resumen por categorías y automatizar pagos periódicos, con los datos cifrados solo en tu dispositivo.",
+      'vc.card': "Web de alquiler de una furgoneta camper desde Barcelona, con tarifas por temporada, destinos europeos sugeridos y un formulario de reserva que calcula el precio según las fechas.",
       'news.title': 'Noticias',
-      'news.intro': 'Novedades, apuntes de cocina digital y algún que otro maullido.',
-      'more': 'Leer más',
-      'post1.title': '¡Hola, mundo! (y hola, gato)',
-      'post1.text': 'Abrimos las puertas de gohan.cat. Aquí encontrarás todos los proyectos reunidos en un solo bol, servidos con calma y buen humor.',
-      'post1.more': 'Leer más: ¡Hola, mundo!',
-      'post2.title': 'Cómo se cuece un proyecto a fuego lento',
-      'post2.text': 'Lavar el arroz, esperar a que absorba el agua y no destapar la olla antes de tiempo. Nuestro método de trabajo, explicado.',
-      'post2.more': 'Leer más: Cómo se cuece un proyecto a fuego lento',
-      'post3.title': 'El gato ya tiene nombre',
-      'post3.text': 'Tras largas deliberaciones (y muchas meriendas), la mascota se llama Gohan. Le gusta el arroz, dormir y nada más.',
-      'post3.more': 'Leer más: El gato ya tiene nombre',
+      'news.intro': "Lanzamientos y novedades de cada proyecto.",
+      'more': "Leer más",
+      'less': "Ocultar el texto",
+      'om.title': "OVERMANAGING: sobrevive a la agenda de un Project Manager IT",
+      'om.sum': "Publicamos OVERMANAGING, un juego cooperativo de caos de oficina para uno o dos jugadores, hermano de OVERWORKING. Se juega directamente en el navegador, en catalán y castellano.",
+      'om.b1': "OVERMANAGING es un juego cooperativo de estilo «cocina frenética» en el que haces de Project Manager IT. La cola de pedidos es tu agenda del día: revisar el presupuesto, la reunión de equipo, el seguimiento con el cliente, el comité de dirección, llamadas y one-to-ones. Para cada cita hay que preparar un dossier: coger el encargo, redactarlo en el portátil, imprimirlo, firmarlo, meterlo en la carpeta y llevarlo a la sala de reuniones.",
+      'om.b2': "Todo ello mientras la impresora se atasca y arde, las notificaciones bloquean las mesas, el café se agota y el CEO aparece con «una ideíta rápida». Hay cinco niveles, de la startup al cierre de trimestre, que se eligen en un roadmap con forma de diagrama de Gantt, con estrellas y progreso guardado. Se puede jugar solo, alternando entre dos PM, o en cooperativo local con teclado o mandos.",
+      'om.b3': "Está hecho con HTML5 Canvas y JavaScript puro, sin dependencias ni compilación: todos los gráficos se dibujan por código y la música y los efectos se sintetizan con WebAudio. Es bilingüe, instalable como PWA e incluye un panel de ajustes de dificultad para desarrolladores.",
+      'ow.title': "OVERWORKING: el caos de una oficina de programadores convertido en juego cooperativo",
+      'ow.sum': "Ya se puede jugar a OVERWORKING, un juego cooperativo a contrarreloj para el navegador en el que hay que servir features a los clientes antes de que se acabe el tiempo. Para 1 o 2 jugadores, con teclado o mando.",
+      'ow.b1': "OVERWORKING es un juego cooperativo de estilo «cocina frenética» ambientado en una oficina de programadores. Los «platos» son features que piden los clientes: hay que coger la spec de la impresora, programarla en el escritorio, compilarla en el servidor de build, testearla, meterla en un Pull Request y desplegarla antes de que caduque el ticket. Todo ello mientras los servidores arden por un SEGFAULT, se escapan bugs, se acaba el café y el mánager pregunta si tienes «5 minutitos».",
+      'ow.b2': "El juego tiene cinco niveles, desde El Garaje (con tutorial guiado) hasta Viernes 17:59 · Deploy Day, cuatro dificultades (Becario, Junior, Senior y Rockstar) y puntuación de una a tres estrellas. Se puede jugar en solitario, alternando entre dos devs, o en cooperativo local para dos, con teclado o mando. El progreso se guarda en el navegador.",
+      'ow.b3': "Está hecho con HTML5 Canvas y JavaScript puro, sin dependencias ni proceso de compilación: todos los gráficos y el audio se generan por código (Web Audio). Incluye soporte para mandos (Gamepad API), manifest de aplicación instalable y un panel de desarrollador (F9) para ajustar el equilibrio del juego en tiempo real.",
+      'cl.title': "Casa en orden: las cuentas de casa, privadas y en el navegador",
+      'cl.sum': "Publicamos Casa en orden, una aplicación web para llevar la economía familiar que guarda todos los datos cifrados en el dispositivo, sin cuentas en la nube ni servidor.",
+      'cl.b1': "Casa en orden es una aplicación para registrar los movimientos económicos del hogar. Permite anotar un gasto en segundos (importe, categoría y fecha), añadir ingresos, asignarlos a «ámbitos» para seguir por separado una actividad concreta y consultar un panel con ingresos, gastos, saldo y reparto por categorías, con filtros por periodo, tipo, categoría y texto. También admite reglas recurrentes (diarias, semanales, mensuales o anuales) que generan automáticamente los movimientos vencidos.",
+      'cl.b2': "El objetivo es la sencillez y la privacidad: no hay contraseña ni nube. Cada espacio se identifica con un alias y un correo, y los datos se cifran en el navegador. Incluye versiones locales restaurables, copias de seguridad en ZIP (cifradas o no), importación para sustituir o añadir datos, exportación a CSV y Excel y un borrado completo.",
+      'cl.b3': "Está hecha con React, TypeScript y Vite, con Tailwind CSS, iconos Lucide y Wouter para la navegación. El cifrado usa la Web Crypto API (PBKDF2 y AES-GCM) sobre localStorage, y la exportación a Excel utiliza SheetJS. Es una aplicación estática que funciona íntegramente en el cliente.",
+      'vc.title': "Viajar con Camper: la web para alquilar una camper y recorrer Europa",
+      'vc.sum': "Una web bilingüe para presentar y reservar una furgoneta camper equipada, con calendario de temporadas y cálculo automático del precio del alquiler.",
+      'vc.b1': "Viajar con Camper es la web de un servicio de alquiler de furgoneta camper con salida desde Barcelona. Muestra el vehículo y su equipamiento con una galería de fotos, propone destinos para hacer ruta (Costa Amalfitana, Toscana, Costa Brava, Algarve, Provenza, Cinque Terre y Dolomitas) e incluye páginas de tarifas y textos legales (privacidad, cookies, aviso legal y condiciones).",
+      'vc.b2': "El objetivo es que el cliente pueda consultar precios y enviar una solicitud de reserva en pocos minutos. Un calendario distingue temporada alta, media y baja, con un precio por día para cada una; el formulario de reserva calcula el total según las fechas elegidas, exige un mínimo de cuatro días y recoge datos de viajeros, conductor, mascota y sillitas infantiles. Todo el contenido está en castellano e inglés.",
+      'vc.b3': "Se ha desarrollado con React 18, TypeScript y Vite, con Tailwind CSS y componentes shadcn/ui (Radix), React Router, react-day-picker y date-fns para los calendarios, y react-helmet-async para el SEO con datos estructurados. Las solicitudes se envían a MailerLite, con hCaptcha, y hay un banner de consentimiento de cookies. El proyecto nació con Lovable.",
+      'hello.title': "Abrimos gohan.cat",
+      'hello.sum': "Arranca gohan.cat, el lugar donde reúno los juegos y aplicaciones web que desarrollo. Cada proyecto tiene su propio subdominio, y aquí publicaré su estado y las novedades de cada lanzamiento.",
       'about.title': 'Sobre mí',
       'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) significa «arroz» en japonés, pero también «comida». Y un <strong>.cat</strong>, claro, siempre lleva un gato dentro.',
       'about.p2': 'Este es el rincón donde reúno mis proyectos y aplicaciones: herramientas pequeñas, útiles y hechas con mimo, como un buen bol de arroz blanco. Nada de estridencias, solo cosas que funcionan y que sacan una sonrisa.',
@@ -756,6 +859,21 @@ section{scroll-margin-top:var(--header-offset,80px)}
 
   var initial = readParam() || readStored() || 'ca';
   if (initial !== 'ca') applyLang(initial);
+
+  /* ---------- Notícies: obre el text complet en arribar-hi per enllaç ---------- */
+  function openPost(id) {
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el || !el.classList.contains('post')) return;
+    var d = el.querySelector('details');
+    if (d) d.open = true;
+  }
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#noticia-"]');
+    if (a) openPost(a.getAttribute('href').slice(1));
+  });
+  window.addEventListener('hashchange', function () { openPost(window.location.hash.slice(1)); });
+  openPost(window.location.hash.slice(1));
 
   /* ---------- Easter egg del gat ---------- */
   var cat = document.getElementById('cat');
