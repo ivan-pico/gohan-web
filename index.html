@@ -170,13 +170,14 @@ section{scroll-margin-top:var(--header-offset,80px)}
 @media (min-width:600px){.card > .card-shot{width:176px}}
 .card-shot{position:relative;z-index:2;display:block;border-radius:12px;overflow:hidden;border:1.5px solid var(--pearl);background:var(--bg)}
 .card-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .35s}
-.card:hover .card-shot img{transform:scale(1.025)}
+
 @media (prefers-reduced-motion:reduce){.card-shot img{transition:none}.card:hover .card-shot img{transform:none}}
 .card-top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem}
 .icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--bg);border:1.5px solid var(--pearl)}
 .icon svg{width:36px;height:36px}
 .tag{font-size:.75rem;font-weight:700;letter-spacing:.04em;padding:.25rem .65rem;border-radius:999px;border:1.5px dashed var(--pearl-2);color:var(--ink-soft);background:var(--bg)}
-.tag.ok{border-style:solid;border-color:var(--nori-soft);background:#EEF3EA;color:var(--nori)}
+.tag.game{border-style:solid;border-color:#DCCDB8;background:#F6F0E4;color:var(--hanko)}
+.tag.app,.tag.ok{border-style:solid;border-color:var(--nori-soft);background:#EEF3EA;color:var(--nori)}
 .card h3{font-size:1.25rem;margin-top:.35rem}
 .card h3 small{display:block;font-size:.78rem;font-weight:500;color:var(--ink-soft);letter-spacing:.06em;margin-top:.15rem}
 .card p{color:var(--ink-soft);font-size:.98rem}
@@ -184,9 +185,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .card-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem}
 .card-open{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.92rem;text-decoration:none;padding:.55rem 1rem;border-radius:999px;background:var(--ink);color:var(--bg);transition:background .2s}
 .card-open svg{width:15px;height:15px}
-.card-open::after{content:"";position:absolute;inset:0;border-radius:var(--radius);z-index:1}
-.card:hover .card-open{background:var(--hanko)}
-.card:has(.card-open:focus-visible){outline:3px solid var(--hanko);outline-offset:3px}
+.card-open:hover{background:var(--hanko)}
+.card-open:focus-visible{outline:3px solid var(--hanko);outline-offset:3px}
 .card-news{position:relative;z-index:2;font-size:.88rem;font-weight:700;color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--pearl-2);text-underline-offset:3px;padding:.2rem 0}
 .card-news:hover{color:var(--hanko);text-decoration-color:currentColor}
 
@@ -455,17 +455,16 @@ section{scroll-margin-top:var(--header-offset,80px)}
     <div class="wrap">
       <div class="section-head">
         <h2 id="projectes-title"><span data-i18n="projects.title">Projectes</span> <span class="ja" lang="ja">プロジェクト</span></h2>
-        <p data-i18n="projects.intro">Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en la seva pròpia web.</p>
       </div>
       <ul class="grid">
         <li>
           <article class="card">
-            <a class="card-shot" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/overmanaging.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></a>
+            <div class="card-shot"><img src="img/projectes/overmanaging.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 0 1 3-3h7l3 3h14a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="10" y="7" width="20" height="17" rx="2" fill="#fff" stroke="#3A332D" stroke-width="2"/><path d="M14 11.5h12M14 15.5h8" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"/><path d="M5 19h30v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 25.5l3.5 3.5 7-7" fill="none" stroke="#C8372D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="tag ok" data-i18n="tag.available">Disponible</span>
+              <span class="tag game" data-i18n="tag.game">Joc</span>
             </div>
             <h3>Overmanaging <small lang="ja">管理</small></h3>
             <p data-i18n="om.card">Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.</p>
@@ -478,12 +477,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <a class="card-shot" href="https://overworking.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/overworking.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></a>
+            <div class="card-shot"><img src="img/projectes/overworking.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
               </div>
-              <span class="tag ok" data-i18n="tag.available">Disponible</span>
+              <span class="tag game" data-i18n="tag.game">Joc</span>
             </div>
             <h3>Overworking <small lang="ja">残業</small></h3>
             <p data-i18n="ow.card">Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.</p>
@@ -496,12 +495,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <a class="card-shot" href="https://cost-ledger.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/cost-ledger.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></a>
+            <div class="card-shot"><img src="img/projectes/cost-ledger.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
               </div>
-              <span class="tag ok" data-i18n="tag.available">Disponible</span>
+              <span class="tag app" data-i18n="tag.app">Aplicació</span>
             </div>
             <h3>Cost-Ledger <small lang="es">Casa en orden</small></h3>
             <p data-i18n="cl.card">Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.</p>
@@ -514,12 +513,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <a class="card-shot" href="https://viajarconcamper.com/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/viajarconcamper.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></a>
+            <div class="card-shot"><img src="img/projectes/viajarconcamper.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
               </div>
-              <span class="tag ok" data-i18n="tag.available">Disponible</span>
+              <span class="tag app" data-i18n="tag.app">Aplicació</span>
             </div>
             <h3>Viajar con Camper <small lang="ja">旅</small></h3>
             <p data-i18n="vc.card">Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.</p>
@@ -690,8 +689,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Fes una moixaina al gat',
       'cat.hint': 'Psst… prova de fer-li una moixaina.',
       'projects.title': 'Projectes',
-      'projects.intro': "Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en la seva pròpia web.",
-      'tag.available': "Disponible",
+      'tag.game': "Joc",
+      'tag.app': "Aplicació",
       'card.open': "Obre l'app",
       'card.news': "Llegeix la notícia",
       'newtab': " (s'obre en una pestanya nova)",
@@ -757,8 +756,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Hazle una caricia al gato',
       'cat.hint': 'Psst… prueba a hacerle una caricia.',
       'projects.title': 'Proyectos',
-      'projects.intro': "Juegos y aplicaciones web que he desarrollado. Cada proyecto se abre en su propia web.",
-      'tag.available': "Disponible",
+      'tag.game': "Juego",
+      'tag.app': "Aplicación",
       'card.open': "Abrir la app",
       'card.news': "Leer la noticia",
       'newtab': " (se abre en una pestaña nueva)",
