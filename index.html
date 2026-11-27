@@ -3,13 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="meta.title">GoHan Cat · Projectes, aplicacions i notícies</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="GoHan Cat (gohan.cat): projectes, aplicacions i notícies en un sol lloc. Consulta les eines en desenvolupament, el seu estat i les últimes novetats.">
+<title data-i18n="meta.title">GoHan Cat · Projectes IA i aplicacions web</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.">
+<meta name="author" content="Ivan Picó">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gohan.cat/" data-i18n-attr="href:meta.url">
+<link rel="alternate" hreflang="ca" href="https://gohan.cat/">
+<link rel="alternate" hreflang="es" href="https://gohan.cat/es/">
+<link rel="alternate" hreflang="x-default" href="https://gohan.cat/">
+<script>
+/* ?lang=xx i preferència desada: només una tria explícita de l'usuari porta a l'altra versió (mai segons l'idioma del navegador). */
+(function () {
+  var here = document.documentElement.lang, want = null;
+  try { want = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+  if (want !== 'ca' && want !== 'es' && here === 'ca') { try { want = localStorage.getItem('gohan-lang'); } catch (e) {} }
+  if ((want === 'ca' || want === 'es') && want !== here) location.replace((here === 'ca' ? 'es/' : '../') + location.hash);
+  else if (location.search.indexOf('lang=') !== -1 && window.history.replaceState) history.replaceState(null, '', location.pathname + location.hash);
+})();
+</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GoHan Cat">
+<meta property="og:url" content="https://gohan.cat/" data-i18n-attr="content:meta.url">
+<meta property="og:title" content="GoHan Cat · Projectes IA i aplicacions web" data-i18n-attr="content:meta.title">
+<meta property="og:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
+<meta property="og:image" content="https://gohan.cat/img/og-image.png" data-i18n-attr="content:meta.ogimage">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="El gat blanc de GoHan Cat dins d'un bol d'arròs, amb el text GoHan Cat" data-i18n-attr="content:meta.ogalt">
+<meta property="og:locale" content="ca_ES" data-i18n-attr="content:meta.locale">
+<meta property="og:locale:alternate" content="es_ES" data-i18n-attr="content:meta.localealt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GoHan Cat · Projectes IA i aplicacions web" data-i18n-attr="content:meta.title">
+<meta name="twitter:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
+<meta name="twitter:image" content="https://gohan.cat/img/og-image.png" data-i18n-attr="content:meta.ogimage">
+<meta name="twitter:image:alt" content="El gat blanc de GoHan Cat dins d'un bol d'arròs, amb el text GoHan Cat" data-i18n-attr="content:meta.ogalt">
 <meta name="theme-color" content="#FAF7F0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23C9C1B3' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M22 13c-3-3 3-6 0-10'/%3E%3Cpath d='M42 13c-3-3 3-6 0-10'/%3E%3C/g%3E%3Cg stroke='%233A332D' stroke-width='2.4' stroke-linejoin='round'%3E%3Cellipse cx='32' cy='37' rx='25' ry='5.5' fill='%23EDE6D8'/%3E%3Cpath d='M18 31 20 15l9 8z' fill='%23fff'/%3E%3Cpath d='M46 31 44 15l-9 8z' fill='%23fff'/%3E%3Cellipse cx='32' cy='31' rx='15.5' ry='12' fill='%23fff'/%3E%3Cpath d='M7 37a25 5.5 0 0 0 50 0c0 12-11 20-25 20S7 49 7 37z' fill='%23fff'/%3E%3C/g%3E%3Cpath d='M9.5 43.5c7 3 38 3 45 0' stroke='%23C8372D' stroke-width='3' fill='none'/%3E%3Cpath d='M21.5 21.5 21 18l4 3.5z' fill='%23E6D9C6'/%3E%3Cpath d='M42.5 21.5 43 18l-4 3.5z' fill='%23E6D9C6'/%3E%3Cg fill='none' stroke='%233A332D' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M24.5 30q2.2-2.4 4.4 0'/%3E%3Cpath d='M35.1 30q2.2-2.4 4.4 0'/%3E%3C/g%3E%3Cpath d='M30.4 33.2h3.2l-1.6 1.8z' fill='%23B09A84'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --bg:#FAF7F0;        /* blanc trencat */
@@ -69,9 +107,9 @@ p{margin:0}
 .nav a:hover{background:var(--cream);color:var(--ink)}
 .nav{margin-left:auto}
 .lang-switch{display:inline-flex;align-items:center;flex:none;padding:3px;gap:2px;background:var(--paper);border:1.5px solid var(--pearl);border-radius:999px}
-.lang-switch button{font:inherit;font-size:.74rem;font-weight:700;letter-spacing:.06em;line-height:1;padding:.42rem .58rem;border:0;border-radius:999px;background:none;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s}
-.lang-switch button:hover{color:var(--ink);background:var(--cream)}
-.lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lang-switch a{display:block;font:inherit;font-size:.74rem;font-weight:700;letter-spacing:.06em;line-height:1;padding:.42rem .58rem;border:0;border-radius:999px;background:none;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.lang-switch a:hover{color:var(--ink);background:var(--cream)}
+.lang-switch a[aria-current="page"]{background:var(--ink);color:var(--bg)}
 @media (max-width:640px){
   .site-header .wrap{flex-wrap:wrap;row-gap:0;min-height:0;padding:.55rem 0 .3rem}
   .lang-switch{order:2}
@@ -226,6 +264,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .hanko-seal{width:120px;height:120px;margin-inline:auto;transform:rotate(-6deg)}
 @media (min-width:760px){.about-card{grid-template-columns:auto 1fr;gap:3rem}.hanko-seal{width:150px;height:150px}}
 .facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.3rem 0 0;padding:0;list-style:none}
+.about-card h3{font-size:1.2rem;margin:1.5rem 0 .6rem}
+.about-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
 .facts li{font-size:.85rem;font-weight:700;padding:.35rem .8rem;border-radius:999px;background:var(--bg);border:1.5px solid var(--pearl)}
 
 /* Footer */
@@ -241,6 +281,10 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .footer-brand{display:inline-flex;align-items:center;gap:.4rem;font-weight:900;color:var(--ink);text-decoration:none}
 .footer-brand svg{width:28px;height:28px}
 .site-footer p{margin-top:.5rem}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;list-style:none;margin:.9rem 0 0;padding:0}
+.footer-links a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.88rem;text-decoration:none;color:var(--ink);padding:.4rem .85rem;border-radius:999px;background:var(--paper);border:1.5px solid var(--pearl);transition:border-color .2s,color .2s}
+.footer-links a:hover{border-color:var(--pearl-2);color:var(--hanko)}
+.footer-links svg{width:17px;height:17px}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -248,6 +292,340 @@ section{scroll-margin-top:var(--header-offset,80px)}
   .steam path{opacity:.6}
 }
 </style>
+<!-- Dades estructurades: generades per tools/build-es.mjs a partir del contingut de la pàgina; no editar a mà. -->
+<script type="application/ld+json" id="dades-estructurades">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://gohan.cat/#website",
+   "url": "https://gohan.cat/",
+   "name": "GoHan Cat",
+   "alternateName": [
+    "gohan.cat",
+    "GoHan Cat ご飯"
+   ],
+   "description": "Portal dels jocs i aplicacions web d'Ivan Picó: projectes, estat i notícies de cada llançament.",
+   "inLanguage": [
+    "ca",
+    "es"
+   ],
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "creator": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://gohan.cat/#ivan-pico",
+   "name": "Ivan Picó",
+   "url": "https://ivanpico.com/",
+   "sameAs": [
+    "https://www.linkedin.com/in/ivanpico",
+    "https://github.com/ivan-pico",
+    "https://ivanpico.com/"
+   ],
+   "jobTitle": "Project Manager Tècnic",
+   "description": "Soc l'Ivan Picó, Project Manager Tècnic. Coordino equips de negoci i tècnics al llarg de tot el cicle de vida dels projectes: planificació, entrega, riscos i dependències. M'agrada especialment ajudar que un projecte que comença poc definit acabi sortint bé."
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://gohan.cat/#webpage",
+   "url": "https://gohan.cat/",
+   "name": "GoHan Cat · Projectes IA i aplicacions web",
+   "description": "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.",
+   "inLanguage": "ca",
+   "isPartOf": {
+    "@id": "https://gohan.cat/#website"
+   },
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "about": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://gohan.cat/img/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "mainEntity": {
+    "@id": "https://gohan.cat/#projectes"
+   },
+   "dateModified": "2026-11-27"
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://gohan.cat/#projectes",
+   "name": "Projectes",
+   "numberOfItems": 4,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "VideoGame",
+      "@id": "https://gohan.cat/#projecte-overmanaging",
+      "name": "Overmanaging",
+      "url": "https://overmanaging.gohan.cat/",
+      "description": "Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.",
+      "image": "https://gohan.cat/img/projectes/overmanaging.webp",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "author": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "creator": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "inLanguage": [
+       "ca",
+       "es"
+      ],
+      "gamePlatform": "Web browser",
+      "playMode": [
+       "SinglePlayer",
+       "CoOp"
+      ],
+      "numberOfPlayers": {
+       "@type": "QuantitativeValue",
+       "minValue": 1,
+       "maxValue": 2
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "EUR",
+       "availability": "https://schema.org/InStock"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "VideoGame",
+      "@id": "https://gohan.cat/#projecte-overworking",
+      "name": "Overworking",
+      "url": "https://overworking.gohan.cat/",
+      "description": "Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.",
+      "image": "https://gohan.cat/img/projectes/overworking.webp",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "author": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "creator": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "gamePlatform": "Web browser",
+      "playMode": [
+       "SinglePlayer",
+       "CoOp"
+      ],
+      "numberOfPlayers": {
+       "@type": "QuantitativeValue",
+       "minValue": 1,
+       "maxValue": 2
+      },
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "EUR",
+       "availability": "https://schema.org/InStock"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "WebApplication",
+      "@id": "https://gohan.cat/#projecte-cost-ledger",
+      "name": "Cost-Ledger",
+      "url": "https://cost-ledger.gohan.cat/",
+      "description": "Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.",
+      "image": "https://gohan.cat/img/projectes/cost-ledger.webp",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "author": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "creator": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "alternateName": "Casa en orden",
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "EUR",
+       "availability": "https://schema.org/InStock"
+      }
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "item": {
+      "@type": "WebApplication",
+      "@id": "https://gohan.cat/#projecte-viajarconcamper",
+      "name": "Viajar con Camper",
+      "url": "https://viajarconcamper.com/",
+      "description": "Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.",
+      "image": "https://gohan.cat/img/projectes/viajarconcamper.webp",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Web",
+      "author": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "creator": {
+       "@id": "https://gohan.cat/#ivan-pico"
+      },
+      "inLanguage": [
+       "es",
+       "en"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://gohan.cat/#noticia-overmanaging",
+   "url": "https://gohan.cat/#noticia-overmanaging",
+   "headline": "OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT",
+   "datePublished": "2026-11-27",
+   "dateModified": "2026-11-27",
+   "inLanguage": "ca",
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "image": "https://gohan.cat/img/projectes/overmanaging.webp",
+   "mainEntityOfPage": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "description": "Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.",
+   "about": {
+    "@id": "https://gohan.cat/#projecte-overmanaging"
+   }
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://gohan.cat/#noticia-overworking",
+   "url": "https://gohan.cat/#noticia-overworking",
+   "headline": "OVERWORKING: el caos d'una oficina de programadors convertit en joc cooperatiu",
+   "datePublished": "2026-11-27",
+   "dateModified": "2026-11-27",
+   "inLanguage": "ca",
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "image": "https://gohan.cat/img/projectes/overworking.webp",
+   "mainEntityOfPage": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "description": "Ja es pot jugar a OVERWORKING, un joc cooperatiu a contrarellotge per al navegador on cal servir features als clients abans que s'acabi el temps. Per a 1 o 2 jugadors, amb teclat o comandament.",
+   "about": {
+    "@id": "https://gohan.cat/#projecte-overworking"
+   }
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://gohan.cat/#noticia-cost-ledger",
+   "url": "https://gohan.cat/#noticia-cost-ledger",
+   "headline": "Casa en orden: els comptes de casa, privats i al navegador",
+   "datePublished": "2026-11-24",
+   "dateModified": "2026-11-24",
+   "inLanguage": "ca",
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "image": "https://gohan.cat/img/projectes/cost-ledger.webp",
+   "mainEntityOfPage": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "description": "Publiquem Casa en orden, una aplicació web per portar l'economia familiar que guarda totes les dades xifrades al dispositiu, sense comptes al núvol ni servidor.",
+   "about": {
+    "@id": "https://gohan.cat/#projecte-cost-ledger"
+   }
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://gohan.cat/#noticia-viajarconcamper",
+   "url": "https://gohan.cat/#noticia-viajarconcamper",
+   "headline": "Viajar con Camper: el web per llogar una camper i recórrer Europa",
+   "datePublished": "2026-11-04",
+   "dateModified": "2026-11-04",
+   "inLanguage": "ca",
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "image": "https://gohan.cat/img/projectes/viajarconcamper.webp",
+   "mainEntityOfPage": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "description": "Un web bilingüe per presentar i reservar una furgoneta camper equipada, amb calendari de temporades i càlcul automàtic del preu del lloguer.",
+   "about": {
+    "@id": "https://gohan.cat/#projecte-viajarconcamper"
+   }
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://gohan.cat/#noticia-gohan-cat",
+   "url": "https://gohan.cat/#noticia-gohan-cat",
+   "headline": "Obrim gohan.cat",
+   "datePublished": "2026-11-26",
+   "dateModified": "2026-11-26",
+   "inLanguage": "ca",
+   "author": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "publisher": {
+    "@id": "https://gohan.cat/#ivan-pico"
+   },
+   "image": "https://gohan.cat/img/og-image.png",
+   "mainEntityOfPage": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "isPartOf": {
+    "@id": "https://gohan.cat/#webpage"
+   },
+   "description": "Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té la seva pròpia web, i aquí en publicaré l'estat i les novetats de cada llançament."
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#contingut" data-i18n="skip">Salta al contingut</a>
@@ -292,6 +670,9 @@ section{scroll-margin-top:var(--header-offset,80px)}
 
     <symbol id="arrow" viewBox="0 0 20 20"><path d="M4 10h11m-4-4.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="ext" viewBox="0 0 20 20"><path d="M7 4.5h8.5V13M15 5 5 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="globe" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="7.6"/><ellipse cx="10" cy="10" rx="3.3" ry="7.6"/><path d="M2.6 10h14.8"/></g></symbol>
+    <symbol id="linkedin" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6.7" cy="6.5" r="1.15" fill="currentColor"/><path d="M6.7 9.2V14M10.2 14V9.2m0 2.3c0-1.4 1-2.4 2.2-2.4s2.1.9 2.1 2.4V14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="code" viewBox="0 0 20 20"><path d="M7 5.5 2.5 10 7 14.5M13 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="chev" viewBox="0 0 20 20"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 
     <clipPath id="bowlClip">
@@ -315,8 +696,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       </ul>
     </nav>
     <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:lang.group">
-      <button type="button" data-lang="ca" lang="ca" aria-pressed="true" aria-label="Català">CA</button>
-      <button type="button" data-lang="es" lang="es" aria-pressed="false" aria-label="Castellano">ES</button>
+      <a href="./" data-lang="ca" hreflang="ca" lang="ca" aria-current="page" aria-label="Català">CA</a>
+      <a href="es/" data-lang="es" hreflang="es" lang="es" aria-label="Castellano">ES</a>
     </div>
   </div>
 </header>
@@ -336,7 +717,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
     <div class="wrap">
       <div class="hero-copy">
         <h1 id="hero-title" data-i18n="hero.title">Benvinguts al GoHan Cat</h1>
-        <p class="lead" data-i18n="hero.lead">Projectes, aplicacions i notícies en un sol lloc. Aquí trobaràs les eines que desenvolupo, en quin estat es troba cadascuna i les novetats de cada llançament.</p>
+        <p class="lead" data-i18n="hero.lead">Jocs cooperatius per al navegador, aplicacions web i notícies en un sol lloc. Aquí trobaràs els projectes que desenvolupo, en quin estat es troba cadascun i les novetats de cada llançament.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projectes"><span data-i18n="hero.cta">Mira els projectes</span> <svg aria-hidden="true"><use href="#arrow"/></svg></a>
           <a class="btn btn-ghost" href="#noticies" data-i18n="hero.cta2">Últimes notícies</a>
@@ -459,7 +840,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       <ul class="grid">
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/overmanaging.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></div>
+            <div class="card-shot"><img src="img/projectes/overmanaging-480.webp" srcset="img/projectes/overmanaging-480.webp 480w, img/projectes/overmanaging.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 0 1 3-3h7l3 3h14a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="10" y="7" width="20" height="17" rx="2" fill="#fff" stroke="#3A332D" stroke-width="2"/><path d="M14 11.5h12M14 15.5h8" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"/><path d="M5 19h30v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 25.5l3.5 3.5 7-7" fill="none" stroke="#C8372D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -477,7 +858,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/overworking.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></div>
+            <div class="card-shot"><img src="img/projectes/overworking-480.webp" srcset="img/projectes/overworking-480.webp 480w, img/projectes/overworking.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -495,7 +876,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/cost-ledger.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
+            <div class="card-shot"><img src="img/projectes/cost-ledger-480.webp" srcset="img/projectes/cost-ledger-480.webp 480w, img/projectes/cost-ledger.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
@@ -513,7 +894,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/viajarconcamper.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
+            <div class="card-shot"><img src="img/projectes/viajarconcamper-480.webp" srcset="img/projectes/viajarconcamper-480.webp 480w, img/projectes/viajarconcamper.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
@@ -645,8 +1026,14 @@ section{scroll-margin-top:var(--header-offset,80px)}
           <div class="section-head" style="margin-bottom:1rem">
             <h2 id="sobre-title"><span data-i18n="about.title">Sobre</span> <span class="ja" lang="ja">について</span></h2>
           </div>
-          <p data-i18n="about.p1"><strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.</p>
-          <p data-i18n="about.p2">Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.</p>
+          <p data-i18n="about.p2">gohan.cat és el lloc on publico projectes relacionats o no amb la intel·ligència artificial. És el laboratori per experimentar amb tecnologia, i especialment amb IA.</p>
+          <h3 id="qui-soc" data-i18n="about.who">Qui hi ha darrere</h3>
+          <p data-i18n="about.p3">Soc l'Ivan Picó, <strong>Project Manager Tècnic</strong>. Coordino equips de negoci i tècnics al llarg de tot el cicle de vida dels projectes: planificació, entrega, riscos i dependències. M'agrada especialment ajudar que un projecte que comença poc definit acabi sortint bé.</p>
+          <p data-i18n="about.p4">També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surten jocs com Overmanaging i Overworking, que riuen una mica d'aquest món.</p>
+          <div class="about-actions">
+            <a class="btn btn-primary" href="https://ivanpico.com/" target="_blank" rel="me noopener"><span data-i18n="about.cta1">Coneix el meu perfil</span><span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/ivanpico" target="_blank" rel="me noopener"><svg aria-hidden="true"><use href="#linkedin"/></svg> <span data-i18n="about.cta2">Connecta a LinkedIn</span><span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span></a>
+          </div>
           <ul class="facts">
             <li data-i18n="fact1">Fet a Catalunya</li>
             <li data-i18n="fact2">Cuinat a foc lent</li>
@@ -665,6 +1052,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
     </div>
     <a class="footer-brand" href="#inici"><svg aria-hidden="true"><use href="#logo"/></svg> gohan.cat <span lang="ja">ご飯</span></a>
     <p data-i18n="footer.text">© 2026 gohan.cat · Fet amb arròs, calma i ronrons.</p>
+    <p data-i18n="footer.by">Un projecte d'Ivan Picó, Project Manager Tècnic</p>
+    <ul class="footer-links">
+      <li><a href="https://ivanpico.com/" target="_blank" rel="me noopener"><svg aria-hidden="true"><use href="#globe"/></svg> ivanpico.com<span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span></a></li>
+      <li><a href="https://www.linkedin.com/in/ivanpico" target="_blank" rel="me noopener"><svg aria-hidden="true"><use href="#linkedin"/></svg> LinkedIn<span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span></a></li>
+      <li><a href="https://github.com/ivan-pico" target="_blank" rel="me noopener"><svg aria-hidden="true"><use href="#code"/></svg> GitHub<span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span></a></li>
+    </ul>
   </div>
 </footer>
 
@@ -673,8 +1066,14 @@ section{scroll-margin-top:var(--header-offset,80px)}
   /* ---------- Idioma (català per defecte) ---------- */
   var I18N = {
     ca: {
-      'meta.title': 'GoHan Cat · Projectes, aplicacions i notícies',
-      'meta.desc': 'GoHan Cat (gohan.cat): projectes, aplicacions i notícies en un sol lloc. Consulta les eines en desenvolupament, el seu estat i les últimes novetats.',
+      'meta.title': "GoHan Cat · Projectes IA i aplicacions web",
+      'meta.desc': "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.",
+      'meta.url': 'https://gohan.cat/',
+      'meta.locale': 'ca_ES',
+      'meta.localealt': 'es_ES',
+      'meta.ogimage': 'https://gohan.cat/img/og-image.png',
+      'meta.ogalt': "El gat blanc de GoHan Cat dins d'un bol d'arròs, amb el text GoHan Cat",
+      'meta.site': "Portal dels jocs i aplicacions web d'Ivan Picó: projectes, estat i notícies de cada llançament.",
       'skip': 'Salta al contingut',
       'brand.label': 'gohan.cat, inici',
       'nav.label': 'Navegació principal',
@@ -683,7 +1082,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'nav.about': 'Sobre',
       'lang.group': 'Idioma',
       'hero.title': 'Benvinguts al GoHan Cat',
-      'hero.lead': 'Projectes, aplicacions i notícies en un sol lloc. Aquí trobaràs les eines que desenvolupo, en quin estat es troba cadascuna i les novetats de cada llançament.',
+      'hero.lead': 'Jocs cooperatius per al navegador, aplicacions web i notícies en un sol lloc. Aquí trobaràs els projectes que desenvolupo, en quin estat es troba cadascun i les novetats de cada llançament.',
       'hero.cta': 'Mira els projectes',
       'hero.cta2': 'Últimes notícies',
       'cat.label': 'Fes una moixaina al gat',
@@ -729,19 +1128,31 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'hello.title': "Obrim gohan.cat",
       'hello.sum': "Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té la seva pròpia web, i aquí en publicaré l'estat i les novetats de cada llançament.",
       'about.title': 'Sobre',
-      'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.',
-      'about.p2': "Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.",
+      'about.p2': "gohan.cat és el lloc on publico projectes relacionats o no amb la intel·ligència artificial. És el laboratori per experimentar amb tecnologia, i especialment amb IA.",
+      'about.who': 'Qui hi ha darrere',
+      'about.p3': "Soc l'Ivan Picó, <strong>Project Manager Tècnic</strong>. Coordino equips de negoci i tècnics al llarg de tot el cicle de vida dels projectes: planificació, entrega, riscos i dependències. M'agrada especialment ajudar que un projecte que comença poc definit acabi sortint bé.",
+      'about.p4': "També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surten jocs com Overmanaging i Overworking, que riuen una mica d'aquest món.",
+      'about.cta1': 'Coneix el meu perfil',
+      'about.cta2': 'Connecta a LinkedIn',
+      'person.job': 'Project Manager Tècnic',
       'fact1': 'Fet a Catalunya',
       'fact2': 'Cuinat a foc lent',
       'fact3': '100% amb gat',
       'footer.text': '© 2026 gohan.cat · Fet amb arròs, calma i ronrons.',
+      'footer.by': "Un projecte d'Ivan Picó, Project Manager Tècnic",
       'meow.first': 'miau! ご飯?',
       'meow.last': "prou, que se'm refreda l'arròs!",
       'meow.list': ['miau! ご飯?', 'miau! ご飯?', 'més arròs, sisplau!', 'ronc, ronc…', 'bon profit!', 'una mica de nori?']
     },
     es: {
-      'meta.title': 'GoHan Cat · Proyectos, aplicaciones y noticias',
-      'meta.desc': 'GoHan Cat (gohan.cat): proyectos, aplicaciones y noticias en un solo lugar. Consulta las herramientas en desarrollo, su estado y las últimas novedades.',
+      'meta.title': 'GoHan Cat · Proyectos IA y aplicaciones web',
+      'meta.desc': 'El laboratorio de Ivan Picó, Project Manager Técnico: juegos cooperativos para el navegador como Overmanaging y Overworking y apps web como Cost-Ledger.',
+      'meta.url': 'https://gohan.cat/es/',
+      'meta.locale': 'es_ES',
+      'meta.localealt': 'ca_ES',
+      'meta.ogimage': 'https://gohan.cat/img/og-image-es.png',
+      'meta.ogalt': 'El gato blanco de GoHan Cat dentro de un bol de arroz, con el texto GoHan Cat',
+      'meta.site': 'Portal de los juegos y aplicaciones web de Ivan Picó: proyectos, estado y noticias de cada lanzamiento.',
       'skip': 'Saltar al contenido',
       'brand.label': 'gohan.cat, inicio',
       'nav.label': 'Navegación principal',
@@ -750,7 +1161,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'nav.about': 'Sobre mí',
       'lang.group': 'Idioma',
       'hero.title': 'Bienvenidos a GoHan Cat',
-      'hero.lead': 'Proyectos, aplicaciones y noticias en un solo lugar. Aquí encontrarás las herramientas que desarrollo, en qué estado está cada una y las novedades de cada lanzamiento.',
+      'hero.lead': 'Juegos cooperativos para el navegador, aplicaciones web y noticias en un solo lugar. Aquí encontrarás los proyectos que desarrollo, en qué estado está cada uno y las novedades de cada lanzamiento.',
       'hero.cta': 'Ver los proyectos',
       'hero.cta2': 'Últimas noticias',
       'cat.label': 'Hazle una caricia al gato',
@@ -796,89 +1207,42 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'hello.title': "Abrimos gohan.cat",
       'hello.sum': "Arranca gohan.cat, el lugar donde reúno los juegos y aplicaciones web que desarrollo. Cada proyecto tiene su propia web, y aquí publicaré su estado y las novedades de cada lanzamiento.",
       'about.title': 'Sobre mí',
-      'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) significa «arroz» en japonés, pero también «comida». Y un <strong>.cat</strong>, claro, siempre lleva un gato dentro.',
-      'about.p2': 'Este es el rincón donde reúno mis proyectos y aplicaciones: herramientas pequeñas, útiles y hechas con mimo, como un buen bol de arroz blanco. Nada de estridencias, solo cosas que funcionan y que sacan una sonrisa.',
+      'about.p2': 'gohan.cat es el lugar donde publico proyectos relacionados o no con la inteligencia artificial. Es el laboratorio para experimentar con tecnología, y en especial con IA.',
+      'about.who': 'Quién hay detrás',
+      'about.p3': 'Soy Ivan Picó, <strong>Project Manager Técnico</strong>. Coordino equipos de negocio y técnicos a lo largo de todo el ciclo de vida de los proyectos: planificación, entrega, riesgos y dependencias. Me gusta especialmente ayudar a que un proyecto que empieza poco definido acabe saliendo bien.',
+      'about.p4': 'También exploro la automatización y los flujos de trabajo con IA para hacer la gestión más eficiente. Y cuando no gestiono proyectos, programo otros pequeños por diversión: de ahí salen juegos como Overmanaging y Overworking, que se ríen un poco de ese mundo.',
+      'about.cta1': 'Conoce mi perfil',
+      'about.cta2': 'Conecta en LinkedIn',
+      'person.job': 'Project Manager Técnico',
       'fact1': 'Hecho en Cataluña',
       'fact2': 'Cocinado a fuego lento',
       'fact3': '100% con gato',
       'footer.text': '© 2026 gohan.cat · Hecho con arroz, calma y ronroneos.',
+      'footer.by': 'Un proyecto de Ivan Picó, Project Manager Técnico',
       'meow.first': '¡miau! ¿ご飯?',
       'meow.last': '¡basta, que se me enfría el arroz!',
       'meow.list': ['¡miau! ¿ご飯?', '¡miau! ¿ご飯?', '¡más arroz, por favor!', 'rrr, rrr…', '¡buen provecho!', '¿un poco de nori?']
     }
   };
-  var LANGS = ['ca', 'es'];
+  /* Cada idioma té la seva URL estàtica: / (català) i /es/ (castellà, generada amb tools/build-es.mjs).
+     El selector CA|ES és un enllaç normal; aquí només desem la tria i conservem l'àncora. */
   var STORE_KEY = 'gohan-lang';
-  var lang = 'ca';
+  var lang = I18N[document.documentElement.lang] ? document.documentElement.lang : 'ca';
 
   function t(key) { return I18N[lang][key]; }
-
-  function readParam() {
-    try {
-      var p = new URLSearchParams(window.location.search).get('lang');
-      return p && LANGS.indexOf(p) !== -1 ? p : null;
-    } catch (e) { return null; }
-  }
-  function readStored() {
-    try {
-      var v = window.localStorage.getItem(STORE_KEY);
-      return LANGS.indexOf(v) !== -1 ? v : null;
-    } catch (e) { return null; }
-  }
-
-  function formatDate(iso) {
-    var parts = iso.split('-');
-    var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
-    try {
-      return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
-    } catch (e) { return iso; }
-  }
-
-  function applyLang(next) {
-    lang = next;
-    document.documentElement.lang = lang;
-    document.title = t('meta.title');
-    var els = document.querySelectorAll('[data-i18n]');
-    for (var i = 0; i < els.length; i++) {
-      var key = els[i].getAttribute('data-i18n');
-      if (els[i].tagName === 'TITLE') continue;
-      if (I18N[lang][key] != null) els[i].innerHTML = I18N[lang][key];
-    }
-    var attrEls = document.querySelectorAll('[data-i18n-attr]');
-    for (var j = 0; j < attrEls.length; j++) {
-      var pairs = attrEls[j].getAttribute('data-i18n-attr').split(';');
-      for (var k = 0; k < pairs.length; k++) {
-        var kv = pairs[k].split(':');
-        if (kv.length === 2 && I18N[lang][kv[1]] != null) attrEls[j].setAttribute(kv[0].trim(), I18N[lang][kv[1]]);
-      }
-    }
-    var times = document.querySelectorAll('time[data-i18n-date]');
-    for (var m = 0; m < times.length; m++) times[m].textContent = formatDate(times[m].getAttribute('datetime'));
-    var btns = document.querySelectorAll('.lang-switch [data-lang]');
-    for (var n = 0; n < btns.length; n++) btns[n].setAttribute('aria-pressed', btns[n].getAttribute('data-lang') === lang ? 'true' : 'false');
-  }
 
   var switcher = document.querySelector('.lang-switch');
   if (switcher) {
     switcher.addEventListener('click', function (ev) {
-      var btn = ev.target.closest('[data-lang]');
-      if (!btn) return;
-      var next = btn.getAttribute('data-lang');
-      if (next === lang) return;
-      applyLang(next);
-      try { window.localStorage.setItem(STORE_KEY, next); } catch (e) {}
-      try {
-        var url = new URL(window.location.href);
-        if (url.searchParams.has('lang')) {
-          url.searchParams.set('lang', next);
-          window.history.replaceState(null, '', url.toString());
-        }
-      } catch (e) {}
+      var link = ev.target.closest('a[data-lang]');
+      if (!link) return;
+      try { window.localStorage.setItem(STORE_KEY, link.getAttribute('data-lang')); } catch (e) {}
+      if (window.location.hash && !ev.defaultPrevented && !ev.metaKey && !ev.ctrlKey && !ev.shiftKey && ev.button === 0) {
+        ev.preventDefault();
+        window.location.href = link.getAttribute('href') + window.location.hash;
+      }
     });
   }
-
-  var initial = readParam() || readStored() || 'ca';
-  if (initial !== 'ca') applyLang(initial);
 
   /* ---------- Notícies: obre el text complet en arribar-hi per enllaç ---------- */
   function openPost(id) {
