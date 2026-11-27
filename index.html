@@ -163,6 +163,10 @@ section{scroll-margin-top:var(--header-offset,80px)}
   display:flex;flex-direction:column;gap:.6rem;
 }
 .card:hover{transform:translateY(-4px);border-color:var(--pearl-2);box-shadow:0 1px 0 rgba(58,51,45,.04),0 18px 36px -16px rgba(58,51,45,.25)}
+.card-shot{position:relative;z-index:2;display:block;margin:-.45rem -.45rem .15rem;border-radius:calc(var(--radius) - 8px);overflow:hidden;border:1.5px solid var(--pearl);background:var(--bg)}
+.card-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .35s}
+.card:hover .card-shot img{transform:scale(1.025)}
+@media (prefers-reduced-motion:reduce){.card-shot img{transition:none}.card:hover .card-shot img{transform:none}}
 .card-top{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
 .icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--bg);border:1.5px solid var(--pearl)}
 .icon svg{width:36px;height:36px}
@@ -446,11 +450,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
     <div class="wrap">
       <div class="section-head">
         <h2 id="projectes-title"><span data-i18n="projects.title">Projectes</span> <span class="ja" lang="ja">プロジェクト</span></h2>
-        <p data-i18n="projects.intro">Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en el seu propi subdomini.</p>
+        <p data-i18n="projects.intro">Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en la seva pròpia web.</p>
       </div>
       <ul class="grid">
         <li>
           <article class="card">
+            <a class="card-shot" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/overmanaging.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></a>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 0 1 3-3h7l3 3h14a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="10" y="7" width="20" height="17" rx="2" fill="#fff" stroke="#3A332D" stroke-width="2"/><path d="M14 11.5h12M14 15.5h8" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"/><path d="M5 19h30v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 25.5l3.5 3.5 7-7" fill="none" stroke="#C8372D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -468,6 +473,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
+            <a class="card-shot" href="https://overworking.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/overworking.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></a>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -485,6 +491,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
+            <a class="card-shot" href="https://cost-ledger.gohan.cat/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/cost-ledger.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></a>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
@@ -502,6 +509,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
+            <a class="card-shot" href="https://viajarconcamper.com/" target="_blank" rel="noopener" tabindex="-1"><img src="img/projectes/viajarconcamper.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></a>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
@@ -510,9 +518,9 @@ section{scroll-margin-top:var(--header-offset,80px)}
             </div>
             <h3>Viajar con Camper <small lang="ja">旅</small></h3>
             <p data-i18n="vc.card">Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.</p>
-            <p class="domain">viajarconcamper.gohan.cat</p>
+            <p class="domain">viajarconcamper.com</p>
             <div class="card-actions">
-              <a class="card-open" href="https://viajarconcamper.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+              <a class="card-open" href="https://viajarconcamper.com/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
               <a class="card-news" href="#noticia-viajarconcamper"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Viajar con Camper</span></a>
             </div>
           </article>
@@ -600,7 +608,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
                 <p data-i18n="vc.b1">Viajar con Camper és el web d'un servei de lloguer de furgoneta camper amb sortida des de Barcelona. Mostra el vehicle i el seu equipament amb una galeria de fotos, proposa destinacions per fer-hi ruta (Costa Amalfitana, Toscana, Costa Brava, Algarve, Provença, Cinque Terre i Dolomites) i inclou pàgines de tarifes i textos legals (privacitat, cookies, avís legal i condicions).</p>
                 <p data-i18n="vc.b2">L'objectiu és que el client pugui consultar preus i enviar una sol·licitud de reserva en pocs minuts. Un calendari distingeix temporada alta, mitjana i baixa, amb un preu per dia per a cadascuna; el formulari de reserva calcula el total segons les dates triades, exigeix un mínim de quatre dies i recull dades de viatgers, conductor, mascota i cadiretes infantils. Tot el contingut està en castellà i anglès.</p>
                 <p data-i18n="vc.b3">S'ha desenvolupat amb React 18, TypeScript i Vite, amb Tailwind CSS i components shadcn/ui (Radix), React Router, react-day-picker i date-fns per als calendaris, i react-helmet-async per al SEO amb dades estructurades. Les sol·licituds s'envien a MailerLite, amb hCaptcha, i hi ha un bàner de consentiment de cookies. El projecte va néixer amb Lovable.</p>
-                <a class="btn btn-ghost" href="https://viajarconcamper.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
+                <a class="btn btn-ghost" href="https://viajarconcamper.com/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Viajar con Camper<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
               </div>
             </details>
           </div>
@@ -612,7 +620,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
           </div>
           <div class="post-body">
             <h3 id="nt-hello" data-i18n="hello.title">Obrim gohan.cat</h3>
-            <p data-i18n="hello.sum">Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té el seu propi subdomini, i aquí en publicaré l'estat i les novetats de cada llançament.</p>
+            <p data-i18n="hello.sum">Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té la seva pròpia web, i aquí en publicaré l'estat i les novetats de cada llançament.</p>
           </div>
         </article>
       </div>
@@ -677,7 +685,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Fes una moixaina al gat',
       'cat.hint': 'Psst… prova de fer-li una moixaina.',
       'projects.title': 'Projectes',
-      'projects.intro': "Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en el seu propi subdomini.",
+      'projects.intro': "Jocs i aplicacions web que he desenvolupat. Cada projecte s'obre en la seva pròpia web.",
       'tag.available': "Disponible",
       'card.open': "Obre l'app",
       'card.news': "Llegeix la notícia",
@@ -686,6 +694,10 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'ow.card': "Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.",
       'cl.card': "Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.",
       'vc.card': "Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.",
+      'shot.om': "Captura de la pantalla de títol d'Overmanaging",
+      'shot.ow': "Captura de la pantalla de títol d'Overworking",
+      'shot.cl': "Captura de la pantalla d'inici de Cost-Ledger",
+      'shot.vc': "Captura de la portada de Viajar con Camper",
       'news.title': 'Notícies',
       'news.intro': "Llançaments i novetats de cada projecte.",
       'more': "Llegeix més",
@@ -711,7 +723,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'vc.b2': "L'objectiu és que el client pugui consultar preus i enviar una sol·licitud de reserva en pocs minuts. Un calendari distingeix temporada alta, mitjana i baixa, amb un preu per dia per a cadascuna; el formulari de reserva calcula el total segons les dates triades, exigeix un mínim de quatre dies i recull dades de viatgers, conductor, mascota i cadiretes infantils. Tot el contingut està en castellà i anglès.",
       'vc.b3': "S'ha desenvolupat amb React 18, TypeScript i Vite, amb Tailwind CSS i components shadcn/ui (Radix), React Router, react-day-picker i date-fns per als calendaris, i react-helmet-async per al SEO amb dades estructurades. Les sol·licituds s'envien a MailerLite, amb hCaptcha, i hi ha un bàner de consentiment de cookies. El projecte va néixer amb Lovable.",
       'hello.title': "Obrim gohan.cat",
-      'hello.sum': "Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té el seu propi subdomini, i aquí en publicaré l'estat i les novetats de cada llançament.",
+      'hello.sum': "Comença gohan.cat, el lloc on reuneixo els jocs i aplicacions web que desenvolupo. Cada projecte té la seva pròpia web, i aquí en publicaré l'estat i les novetats de cada llançament.",
       'about.title': 'Sobre',
       'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) vol dir «arròs» en japonès, però també «àpat». I un <strong>.cat</strong>, és clar, sempre té un gat a dins.',
       'about.p2': "Aquest és el racó on reuneixo els meus projectes i aplicacions: eines petites, útils i fetes amb cura, com un bon bol d'arròs blanc. Res d'estridències, només coses que funcionen i que fan somriure.",
@@ -740,7 +752,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'cat.label': 'Hazle una caricia al gato',
       'cat.hint': 'Psst… prueba a hacerle una caricia.',
       'projects.title': 'Proyectos',
-      'projects.intro': "Juegos y aplicaciones web que he desarrollado. Cada proyecto se abre en su propio subdominio.",
+      'projects.intro': "Juegos y aplicaciones web que he desarrollado. Cada proyecto se abre en su propia web.",
       'tag.available': "Disponible",
       'card.open': "Abrir la app",
       'card.news': "Leer la noticia",
@@ -749,6 +761,10 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'ow.card': "Juego cooperativo frenético para 1 o 2 jugadores en una oficina de programadores: programa, compila, testea y despliega features antes de que caduque el ticket o arda el servidor.",
       'cl.card': "Libreta de economía doméstica para apuntar ingresos y gastos, ver su resumen por categorías y automatizar pagos periódicos, con los datos cifrados solo en tu dispositivo.",
       'vc.card': "Web de alquiler de una furgoneta camper desde Barcelona, con tarifas por temporada, destinos europeos sugeridos y un formulario de reserva que calcula el precio según las fechas.",
+      'shot.om': "Captura de la pantalla de título de Overmanaging",
+      'shot.ow': "Captura de la pantalla de título de Overworking",
+      'shot.cl': "Captura de la pantalla de inicio de Cost-Ledger",
+      'shot.vc': "Captura de la portada de Viajar con Camper",
       'news.title': 'Noticias',
       'news.intro': "Lanzamientos y novedades de cada proyecto.",
       'more': "Leer más",
@@ -774,7 +790,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'vc.b2': "El objetivo es que el cliente pueda consultar precios y enviar una solicitud de reserva en pocos minutos. Un calendario distingue temporada alta, media y baja, con un precio por día para cada una; el formulario de reserva calcula el total según las fechas elegidas, exige un mínimo de cuatro días y recoge datos de viajeros, conductor, mascota y sillitas infantiles. Todo el contenido está en castellano e inglés.",
       'vc.b3': "Se ha desarrollado con React 18, TypeScript y Vite, con Tailwind CSS y componentes shadcn/ui (Radix), React Router, react-day-picker y date-fns para los calendarios, y react-helmet-async para el SEO con datos estructurados. Las solicitudes se envían a MailerLite, con hCaptcha, y hay un banner de consentimiento de cookies. El proyecto nació con Lovable.",
       'hello.title': "Abrimos gohan.cat",
-      'hello.sum': "Arranca gohan.cat, el lugar donde reúno los juegos y aplicaciones web que desarrollo. Cada proyecto tiene su propio subdominio, y aquí publicaré su estado y las novedades de cada lanzamiento.",
+      'hello.sum': "Arranca gohan.cat, el lugar donde reúno los juegos y aplicaciones web que desarrollo. Cada proyecto tiene su propia web, y aquí publicaré su estado y las novedades de cada lanzamiento.",
       'about.title': 'Sobre mí',
       'about.p1': '<strong lang="ja">ご飯</strong> (<em>gohan</em>) significa «arroz» en japonés, pero también «comida». Y un <strong>.cat</strong>, claro, siempre lleva un gato dentro.',
       'about.p2': 'Este es el rincón donde reúno mis proyectos y aplicaciones: herramientas pequeñas, útiles y hechas con mimo, como un buen bol de arroz blanco. Nada de estridencias, solo cosas que funcionan y que sacan una sonrisa.',
