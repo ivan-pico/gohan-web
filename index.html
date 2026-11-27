@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="meta.title">gohan.cat · ご飯 · Bon profit, miau!</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="gohan.cat: el portal dels projectes, aplicacions i notícies d'un gat blanc que viu dins un bol d'arròs. Bon profit!">
+<title data-i18n="meta.title">GoHan Cat · Projectes, aplicacions i notícies</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="GoHan Cat (gohan.cat): projectes, aplicacions i notícies en un sol lloc. Consulta les eines en desenvolupament, el seu estat i les últimes novetats.">
 <meta name="theme-color" content="#FAF7F0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23C9C1B3' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M22 13c-3-3 3-6 0-10'/%3E%3Cpath d='M42 13c-3-3 3-6 0-10'/%3E%3C/g%3E%3Cg stroke='%233A332D' stroke-width='2.4' stroke-linejoin='round'%3E%3Cellipse cx='32' cy='37' rx='25' ry='5.5' fill='%23EDE6D8'/%3E%3Cpath d='M18 31 20 15l9 8z' fill='%23fff'/%3E%3Cpath d='M46 31 44 15l-9 8z' fill='%23fff'/%3E%3Cellipse cx='32' cy='31' rx='15.5' ry='12' fill='%23fff'/%3E%3Cpath d='M7 37a25 5.5 0 0 0 50 0c0 12-11 20-25 20S7 49 7 37z' fill='%23fff'/%3E%3C/g%3E%3Cpath d='M9.5 43.5c7 3 38 3 45 0' stroke='%23C8372D' stroke-width='3' fill='none'/%3E%3Cpath d='M21.5 21.5 21 18l4 3.5z' fill='%23E6D9C6'/%3E%3Cpath d='M42.5 21.5 43 18l-4 3.5z' fill='%23E6D9C6'/%3E%3Cg fill='none' stroke='%233A332D' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M24.5 30q2.2-2.4 4.4 0'/%3E%3Cpath d='M35.1 30q2.2-2.4 4.4 0'/%3E%3C/g%3E%3Cpath d='M30.4 33.2h3.2l-1.6 1.8z' fill='%23B09A84'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,15 +82,11 @@ p{margin:0}
 @media (max-width:420px){.brand-ja{display:none}.nav a{padding:.45rem .45rem;font-size:.88rem}}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;overflow:hidden;padding:2.5rem 0 3.5rem}
-.hero .wrap{display:grid;gap:1.5rem;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--hanko)}
-.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
-.hero h1{font-size:clamp(2.3rem,7.5vw,4.1rem);margin:.7rem 0 1rem}
-.hero h1 em{font-style:normal;color:var(--hanko);position:relative;white-space:nowrap}
-.hero h1 em::after{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.06em;height:.32em;background:var(--rice-glow);z-index:-1;border-radius:.2em}
-.hero .lead{font-size:1.15rem;color:var(--ink-soft);max-width:34ch}
-.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.hero{position:relative;overflow:hidden;padding:1.5rem 0 2rem}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:1rem;align-items:center}
+.hero h1{font-size:clamp(1.9rem,5.5vw,2.9rem);margin:0 0 .75rem}
+.hero .lead{font-size:1.08rem;color:var(--ink-soft);max-width:52ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.4rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;font:inherit;font-weight:700;text-decoration:none;padding:.85rem 1.35rem;border-radius:999px;border:2px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
 .btn-primary{background:var(--hanko);color:#fff;box-shadow:0 8px 20px -10px rgba(184,50,42,.7)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(184,50,42,.75)}
@@ -98,14 +94,14 @@ p{margin:0}
 .btn-ghost:hover{border-color:var(--pearl-2);transform:translateY(-2px)}
 .btn svg{width:18px;height:18px}
 
-.hero-art{position:relative;max-width:460px;width:100%;margin-inline:auto}
+.hero-art{position:relative;max-width:220px;width:100%;margin-inline:auto}
 .sun{position:absolute;inset:6% 8% 14%;border-radius:50%;background:radial-gradient(circle at 40% 35%, #FCF9F2, #EFE8DB 70%);opacity:.75}
 .cat-btn{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;border-radius:40px;-webkit-tap-highlight-color:transparent}
 .cat-btn svg{width:100%;height:auto;overflow:visible}
 .bubble{
-  position:absolute;top:2%;right:-2%;z-index:3;
-  background:var(--paper);color:var(--ink);font-weight:900;font-size:1.1rem;
-  padding:.65rem 1rem;border-radius:18px;border:2.5px solid var(--line);
+  position:absolute;top:0;right:-10%;z-index:3;
+  background:var(--paper);color:var(--ink);font-weight:900;font-size:1rem;
+  padding:.5rem .85rem;border-radius:18px;border:2.5px solid var(--line);
   box-shadow:4px 4px 0 var(--pearl);white-space:nowrap;
   opacity:0;transform:scale(.6) translateY(10px);transform-origin:10% 100%;
   transition:opacity .25s, transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;
@@ -142,8 +138,9 @@ p{margin:0}
 .cat-btn.meow .mouth-closed{opacity:0}
 
 @media (min-width:860px){
-  .hero{padding:4.5rem 0 5rem}
-  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:3rem}
+  .hero{padding:2.25rem 0 2.5rem}
+  .hero .wrap{grid-template-columns:1.6fr 1fr;gap:2.5rem}
+  .hero-art{max-width:280px}
 }
 
 /* ---------- Seccions ---------- */
@@ -302,13 +299,12 @@ section{scroll-margin-top:var(--header-offset,80px)}
       <span class="grain" style="--x:52%;--y:84%;--r:-10deg;--d:9s;--dl:-3s"></span>
       <span class="grain" style="--x:12%;--y:78%;--r:75deg;--d:7.5s;--dl:-4s"></span>
       <span class="grain" style="--x:96%;--y:70%;--r:-55deg;--d:8s;--dl:-2.5s"></span>
-      <span class="grain" style="--x:30%;--y:50%;--r:40deg;--d:10s;--dl:-5s"></span>
+      <span class="grain" style="--x:64%;--y:90%;--r:40deg;--d:10s;--dl:-5s"></span>
     </div>
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow" data-i18n="hero.eyebrow">Benvinguts al bol</span>
-        <h1 id="hero-title" data-i18n="hero.title">Aquí hi ha <em>gat amagat</em>… dins d'un bol d'arròs.</h1>
-        <p class="lead" data-i18n="hero.lead">Projectes, aplicacions i notícies servits ben calents, com un bol de <span lang="ja">ご飯</span> acabat de fer. Agafa els bastonets: bon profit, miau!</p>
+        <h1 id="hero-title" data-i18n="hero.title">Benvinguts al GoHan Cat</h1>
+        <p class="lead" data-i18n="hero.lead">Projectes, aplicacions i notícies en un sol lloc. Aquí trobaràs les eines que desenvolupo, en quin estat es troba cadascuna i les novetats de cada llançament.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projectes"><span data-i18n="hero.cta">Mira els projectes</span> <svg aria-hidden="true"><use href="#arrow"/></svg></a>
           <a class="btn btn-ghost" href="#noticies" data-i18n="hero.cta2">Últimes notícies</a>
@@ -578,8 +574,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
   /* ---------- Idioma (català per defecte) ---------- */
   var I18N = {
     ca: {
-      'meta.title': 'gohan.cat · ご飯 · Bon profit, miau!',
-      'meta.desc': "gohan.cat: el portal dels projectes, aplicacions i notícies d'un gat blanc que viu dins un bol d'arròs. Bon profit!",
+      'meta.title': 'GoHan Cat · Projectes, aplicacions i notícies',
+      'meta.desc': 'GoHan Cat (gohan.cat): projectes, aplicacions i notícies en un sol lloc. Consulta les eines en desenvolupament, el seu estat i les últimes novetats.',
       'skip': 'Salta al contingut',
       'brand.label': 'gohan.cat, inici',
       'nav.label': 'Navegació principal',
@@ -587,9 +583,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'nav.news': 'Notícies',
       'nav.about': 'Sobre',
       'lang.group': 'Idioma',
-      'hero.eyebrow': 'Benvinguts al bol',
-      'hero.title': "Aquí hi ha <em>gat amagat</em>… dins d'un bol d'arròs.",
-      'hero.lead': 'Projectes, aplicacions i notícies servits ben calents, com un bol de <span lang="ja">ご飯</span> acabat de fer. Agafa els bastonets: bon profit, miau!',
+      'hero.title': 'Benvinguts al GoHan Cat',
+      'hero.lead': 'Projectes, aplicacions i notícies en un sol lloc. Aquí trobaràs les eines que desenvolupo, en quin estat es troba cadascuna i les novetats de cada llançament.',
       'hero.cta': 'Mira els projectes',
       'hero.cta2': 'Últimes notícies',
       'cat.label': 'Fes una moixaina al gat',
@@ -634,8 +629,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'meow.list': ['miau! ご飯?', 'miau! ご飯?', 'més arròs, sisplau!', 'ronc, ronc…', 'bon profit!', 'una mica de nori?']
     },
     es: {
-      'meta.title': 'gohan.cat · ご飯 · ¡Buen provecho, miau!',
-      'meta.desc': 'gohan.cat: el portal de los proyectos, aplicaciones y noticias de un gato blanco que vive dentro de un bol de arroz. ¡Buen provecho!',
+      'meta.title': 'GoHan Cat · Proyectos, aplicaciones y noticias',
+      'meta.desc': 'GoHan Cat (gohan.cat): proyectos, aplicaciones y noticias en un solo lugar. Consulta las herramientas en desarrollo, su estado y las últimas novedades.',
       'skip': 'Saltar al contenido',
       'brand.label': 'gohan.cat, inicio',
       'nav.label': 'Navegación principal',
@@ -643,9 +638,8 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'nav.news': 'Noticias',
       'nav.about': 'Sobre mí',
       'lang.group': 'Idioma',
-      'hero.eyebrow': 'Bienvenidos al bol',
-      'hero.title': 'Aquí hay <em>gato encerrado</em>… dentro de un bol de arroz.',
-      'hero.lead': 'Proyectos, aplicaciones y noticias servidos bien calentitos, como un bol de <span lang="ja">ご飯</span> recién hecho. Coge los palillos: ¡buen provecho, miau!',
+      'hero.title': 'Bienvenidos a GoHan Cat',
+      'hero.lead': 'Proyectos, aplicaciones y noticias en un solo lugar. Aquí encontrarás las herramientas que desarrollo, en qué estado está cada una y las novedades de cada lanzamiento.',
       'hero.cta': 'Ver los proyectos',
       'hero.cta2': 'Últimas noticias',
       'cat.label': 'Hazle una caricia al gato',
