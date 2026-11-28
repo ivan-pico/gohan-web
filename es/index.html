@@ -206,14 +206,11 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .card > h3{grid-column:1;grid-row:2;align-self:start}
 .card:hover{transform:translateY(-4px);border-color:var(--pearl-2);box-shadow:0 1px 0 rgba(58,51,45,.04),0 18px 36px -16px rgba(58,51,45,.25)}
 .card > .card-shot{grid-column:2;grid-row:1 / span 2;align-self:start;width:128px}
-@media (min-width:600px){.card > .card-shot{width:176px}}
+@media (min-width:600px){.card > .card-shot{width:140px}}
 /* Amb tres projectes, a partir de 1000px van en tres columnes i la captura passa a dalt, a tota l'amplada */
 @media (min-width:1000px){
   .grid{grid-template-columns:repeat(3,1fr)}
-  .card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr auto}
-  .card > .card-shot{grid-column:1;grid-row:1;width:auto}
-  .card > .card-top{grid-row:2}
-  .card > h3{grid-row:3}
+  .card > .card-shot{width:150px}
 }
 .card-shot{position:relative;z-index:2;display:block;border-radius:12px;overflow:hidden;border:1.5px solid var(--pearl);background:var(--bg)}
 .card-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .35s}
@@ -781,7 +778,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       <ul class="grid">
         <li>
           <article class="card">
-            <div class="card-shot"><img src="../img/projectes/overworking-480.webp" srcset="../img/projectes/overworking-480.webp 480w, ../img/projectes/overworking.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de título de Overworking" data-i18n-attr="alt:shot.ow"></div>
+            <div class="card-shot"><img src="../img/projectes/overworking-480.webp" srcset="../img/projectes/overworking-480.webp 480w, ../img/projectes/overworking.webp 1200w" sizes="(min-width:1000px) 150px, (min-width:600px) 140px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de título de Overworking" data-i18n-attr="alt:shot.ow"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -799,7 +796,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="../img/projectes/cost-ledger-480.webp" srcset="../img/projectes/cost-ledger-480.webp 480w, ../img/projectes/cost-ledger.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de inicio de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
+            <div class="card-shot"><img src="../img/projectes/cost-ledger-480.webp" srcset="../img/projectes/cost-ledger-480.webp 480w, ../img/projectes/cost-ledger.webp 1200w" sizes="(min-width:1000px) 150px, (min-width:600px) 140px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de inicio de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
@@ -817,7 +814,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="../img/projectes/viajarconcamper-480.webp" srcset="../img/projectes/viajarconcamper-480.webp 480w, ../img/projectes/viajarconcamper.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
+            <div class="card-shot"><img src="../img/projectes/viajarconcamper-480.webp" srcset="../img/projectes/viajarconcamper-480.webp 480w, ../img/projectes/viajarconcamper.webp 1200w" sizes="(min-width:1000px) 150px, (min-width:600px) 140px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
