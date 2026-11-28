@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.title">GoHan Cat · Projectes IA i aplicacions web</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.">
+<meta name="description" data-i18n-attr="content:meta.desc" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger.">
 <meta name="author" content="Ivan Picó">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://gohan.cat/" data-i18n-attr="href:meta.url">
@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="GoHan Cat">
 <meta property="og:url" content="https://gohan.cat/" data-i18n-attr="content:meta.url">
 <meta property="og:title" content="GoHan Cat · Projectes IA i aplicacions web" data-i18n-attr="content:meta.title">
-<meta property="og:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
+<meta property="og:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
 <meta property="og:image" content="https://gohan.cat/img/og-image.png" data-i18n-attr="content:meta.ogimage">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -35,7 +35,7 @@
 <meta property="og:locale:alternate" content="es_ES" data-i18n-attr="content:meta.localealt">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GoHan Cat · Projectes IA i aplicacions web" data-i18n-attr="content:meta.title">
-<meta name="twitter:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
+<meta name="twitter:description" content="El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger." data-i18n-attr="content:meta.desc">
 <meta name="twitter:image" content="https://gohan.cat/img/og-image.png" data-i18n-attr="content:meta.ogimage">
 <meta name="twitter:image:alt" content="El gat blanc de GoHan Cat dins d'un bol d'arròs, amb el text GoHan Cat" data-i18n-attr="content:meta.ogalt">
 <meta name="theme-color" content="#FAF7F0">
@@ -206,6 +206,14 @@ section{scroll-margin-top:var(--header-offset,80px)}
 .card:hover{transform:translateY(-4px);border-color:var(--pearl-2);box-shadow:0 1px 0 rgba(58,51,45,.04),0 18px 36px -16px rgba(58,51,45,.25)}
 .card > .card-shot{grid-column:2;grid-row:1 / span 2;align-self:start;width:128px}
 @media (min-width:600px){.card > .card-shot{width:176px}}
+/* Amb tres projectes, a partir de 1000px van en tres columnes i la captura passa a dalt, a tota l'amplada */
+@media (min-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr auto}
+  .card > .card-shot{grid-column:1;grid-row:1;width:auto}
+  .card > .card-top{grid-row:2}
+  .card > h3{grid-row:3}
+}
 .card-shot{position:relative;z-index:2;display:block;border-radius:12px;overflow:hidden;border:1.5px solid var(--pearl);background:var(--bg)}
 .card-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .35s}
 
@@ -339,7 +347,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
    "@id": "https://gohan.cat/#webpage",
    "url": "https://gohan.cat/",
    "name": "GoHan Cat · Projectes IA i aplicacions web",
-   "description": "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.",
+   "description": "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger.",
    "inLanguage": "ca",
    "isPartOf": {
     "@id": "https://gohan.cat/#website"
@@ -359,57 +367,17 @@ section{scroll-margin-top:var(--header-offset,80px)}
    "mainEntity": {
     "@id": "https://gohan.cat/#projectes"
    },
-   "dateModified": "2026-11-27T12:00:00+01:00"
+   "dateModified": "2026-11-28T12:00:00+01:00"
   },
   {
    "@type": "ItemList",
    "@id": "https://gohan.cat/#projectes",
    "name": "Projectes",
-   "numberOfItems": 4,
+   "numberOfItems": 3,
    "itemListElement": [
     {
      "@type": "ListItem",
      "position": 1,
-     "item": {
-      "@type": "VideoGame",
-      "@id": "https://gohan.cat/#projecte-overmanaging",
-      "name": "Overmanaging",
-      "url": "https://overmanaging.gohan.cat/",
-      "description": "Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.",
-      "image": "https://gohan.cat/img/projectes/overmanaging.webp",
-      "author": {
-       "@id": "https://gohan.cat/#ivan-pico"
-      },
-      "creator": {
-       "@id": "https://gohan.cat/#ivan-pico"
-      },
-      "applicationCategory": "GameApplication",
-      "operatingSystem": "Web",
-      "inLanguage": [
-       "ca",
-       "es"
-      ],
-      "gamePlatform": "Web browser",
-      "playMode": [
-       "SinglePlayer",
-       "CoOp"
-      ],
-      "numberOfPlayers": {
-       "@type": "QuantitativeValue",
-       "minValue": 1,
-       "maxValue": 2
-      },
-      "offers": {
-       "@type": "Offer",
-       "price": "0",
-       "priceCurrency": "EUR",
-       "availability": "https://schema.org/InStock"
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
      "item": {
       "@type": "VideoGame",
       "@id": "https://gohan.cat/#projecte-overworking",
@@ -445,7 +413,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
     },
     {
      "@type": "ListItem",
-     "position": 3,
+     "position": 2,
      "item": {
       "@type": "WebApplication",
       "@id": "https://gohan.cat/#projecte-cost-ledger",
@@ -472,7 +440,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
     },
     {
      "@type": "ListItem",
-     "position": 4,
+     "position": 3,
      "item": {
       "@type": "WebSite",
       "@id": "https://gohan.cat/#projecte-viajarconcamper",
@@ -493,32 +461,6 @@ section{scroll-margin-top:var(--header-offset,80px)}
      }
     }
    ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://gohan.cat/#noticia-overmanaging",
-   "url": "https://gohan.cat/#noticia-overmanaging",
-   "headline": "OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT",
-   "datePublished": "2026-11-27T12:00:00+01:00",
-   "dateModified": "2026-11-27T12:00:00+01:00",
-   "inLanguage": "ca",
-   "author": {
-    "@id": "https://gohan.cat/#ivan-pico"
-   },
-   "publisher": {
-    "@id": "https://gohan.cat/#ivan-pico"
-   },
-   "image": "https://gohan.cat/img/projectes/overmanaging.webp",
-   "mainEntityOfPage": {
-    "@id": "https://gohan.cat/#webpage"
-   },
-   "isPartOf": {
-    "@id": "https://gohan.cat/#webpage"
-   },
-   "description": "Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.",
-   "about": {
-    "@id": "https://gohan.cat/#projecte-overmanaging"
-   }
   },
   {
    "@type": "BlogPosting",
@@ -838,25 +780,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       <ul class="grid">
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/overmanaging-480.webp" srcset="img/projectes/overmanaging-480.webp 480w, img/projectes/overmanaging.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overmanaging" data-i18n-attr="alt:shot.om"></div>
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 0 1 3-3h7l3 3h14a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="10" y="7" width="20" height="17" rx="2" fill="#fff" stroke="#3A332D" stroke-width="2"/><path d="M14 11.5h12M14 15.5h8" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"/><path d="M5 19h30v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 25.5l3.5 3.5 7-7" fill="none" stroke="#C8372D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <span class="tag game" data-i18n="tag.game">Joc</span>
-            </div>
-            <h3>Overmanaging <small lang="ja">管理</small></h3>
-            <p data-i18n="om.card">Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.</p>
-            <p class="domain">overmanaging.gohan.cat</p>
-            <div class="card-actions">
-              <a class="card-open" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overmanaging<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
-              <a class="card-news" href="#noticia-overmanaging"><span data-i18n="card.news">Llegeix la notícia</span><span class="sr-only">: Overmanaging</span></a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="card">
-            <div class="card-shot"><img src="img/projectes/overworking-480.webp" srcset="img/projectes/overworking-480.webp 480w, img/projectes/overworking.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></div>
+            <div class="card-shot"><img src="img/projectes/overworking-480.webp" srcset="img/projectes/overworking-480.webp 480w, img/projectes/overworking.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla de títol d'Overworking" data-i18n-attr="alt:shot.ow"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><g fill="none" stroke="#CFC6B6" stroke-width="2" stroke-linecap="round"><path d="M14.5 12c-2-2 2-4 0-6.5"/><path d="M21.5 12c-2-2 2-4 0-6.5"/></g><path d="M28 18h2.5a3.8 3.8 0 0 1 0 7.6H28" fill="none" stroke="#3A332D" stroke-width="2.2"/><path d="M7 15h21v12a6 6 0 0 1-6 6h-9a6 6 0 0 1-6-6z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 21h19" stroke="#4F6B4C" stroke-width="2.4"/><path d="M5 36h26" stroke="#3A332D" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -874,7 +798,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/cost-ledger-480.webp" srcset="img/projectes/cost-ledger-480.webp 480w, img/projectes/cost-ledger.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
+            <div class="card-shot"><img src="img/projectes/cost-ledger-480.webp" srcset="img/projectes/cost-ledger-480.webp 480w, img/projectes/cost-ledger.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la pantalla d'inici de Cost-Ledger" data-i18n-attr="alt:shot.cl"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><path d="M8 12.5 22 6.5l3.5 6" fill="#DCE5D5" stroke="#3A332D" stroke-width="2" stroke-linejoin="round"/><rect x="5" y="12" width="27" height="21" rx="3.5" fill="#fff" stroke="#3A332D" stroke-width="2.2"/><path d="M34 18.5h-7.5a3 3 0 0 0 0 6H34z" fill="#EFE6D3" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="27" cy="21.5" r="1.2" fill="#3A332D"/><g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 28v-9m-3 3 3-3 3 3" stroke="#4F6B4C"/><path d="M18.5 19v9m-3-3 3 3 3-3" stroke="#C8372D"/></g></svg>
@@ -892,7 +816,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
         </li>
         <li>
           <article class="card">
-            <div class="card-shot"><img src="img/projectes/viajarconcamper-480.webp" srcset="img/projectes/viajarconcamper-480.webp 480w, img/projectes/viajarconcamper.webp 1200w" sizes="(min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
+            <div class="card-shot"><img src="img/projectes/viajarconcamper-480.webp" srcset="img/projectes/viajarconcamper-480.webp 480w, img/projectes/viajarconcamper.webp 1200w" sizes="(min-width:1000px) 330px, (min-width:600px) 176px, 128px" width="480" height="300" loading="lazy" decoding="async" alt="Captura de la portada de Viajar con Camper" data-i18n-attr="alt:shot.vc"></div>
             <div class="card-top">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 40 40"><circle cx="33.5" cy="6.5" r="2.6" fill="none" stroke="#CFC6B6" stroke-width="1.8"/><g transform="translate(0 -1.5)"><path d="M4 28V15a4 4 0 0 1 4-4h17.5c2.6 0 4.4 1.2 5.8 3.4L35 21v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="#fff" stroke="#3A332D" stroke-width="2.2" stroke-linejoin="round"/><rect x="8" y="14.5" width="10" height="6" rx="1.5" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8"/><path d="M23 14.5h3.2c1.3 0 2.2.6 2.9 1.7l2.4 4.3H23z" fill="#DCE5D5" stroke="#3A332D" stroke-width="1.8" stroke-linejoin="round"/><path d="M4.5 24.5h30" stroke="#C8372D" stroke-width="2.2"/><g fill="#fff" stroke="#3A332D" stroke-width="2.2"><circle cx="11.5" cy="30.5" r="3.6"/><circle cx="27.5" cy="30.5" r="3.6"/></g><g fill="#CFC6B6"><circle cx="11.5" cy="30.5" r="1.2"/><circle cx="27.5" cy="30.5" r="1.2"/></g></g></svg>
@@ -920,25 +844,6 @@ section{scroll-margin-top:var(--header-offset,80px)}
         <p data-i18n="news.intro">Llançaments i novetats de cada projecte.</p>
       </div>
       <div class="posts">
-        <article class="post" id="noticia-overmanaging" aria-labelledby="nt-om">
-          <div class="post-meta">
-            <time datetime="2026-11-27" data-i18n-date>27 de novembre de 2026</time>
-            <span class="post-project">Overmanaging</span>
-          </div>
-          <div class="post-body">
-            <h3 id="nt-om" data-i18n="om.title">OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT</h3>
-            <p data-i18n="om.sum">Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.</p>
-            <details class="post-more">
-              <summary aria-describedby="nt-om"><span class="when-closed" data-i18n="more">Llegeix més</span><span class="when-open" data-i18n="less">Amaga el text</span> <svg aria-hidden="true"><use href="#chev"/></svg></summary>
-              <div class="post-full">
-                <p data-i18n="om.b1">OVERMANAGING és un joc cooperatiu d'estil «cuina frenètica» en què fas de Project Manager IT. La cua de comandes és la teva agenda del dia: revisar el pressupost, la reunió d'equip, el seguiment amb el client, el comitè de direcció, trucades i one-to-ones. Per a cada cita cal preparar un dossier: agafar l'encàrrec, redactar-lo al portàtil, imprimir-lo, signar-lo, posar-lo a la carpeta i portar-lo a la sala de reunions.</p>
-                <p data-i18n="om.b2">Tot plegat mentre la impressora s'encalla i crema, les notificacions bloquegen les taules, el cafè s'acaba i el CEO apareix amb «una ideeta ràpida». Hi ha cinc nivells, de la startup al tancament de trimestre, que es trien en un roadmap en forma de diagrama de Gantt, amb estrelles i progrés desat. Es pot jugar sol, alternant entre dos PM, o en cooperatiu local amb teclat o comandaments.</p>
-                <p data-i18n="om.b3">Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni compilació: tots els gràfics es dibuixen per codi i la música i els efectes se sintetitzen amb WebAudio. És bilingüe, instal·lable com a PWA i inclou un panell d'ajustos de dificultat per a desenvolupadors.</p>
-                <a class="btn btn-ghost" href="https://overmanaging.gohan.cat/" target="_blank" rel="noopener"><span data-i18n="card.open">Obre l'app</span><span class="sr-only">: Overmanaging<span data-i18n="newtab"> (s'obre en una pestanya nova)</span></span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
-              </div>
-            </details>
-          </div>
-        </article>
         <article class="post" id="noticia-overworking" aria-labelledby="nt-ow">
           <div class="post-meta">
             <time datetime="2026-11-27" data-i18n-date>27 de novembre de 2026</time>
@@ -1027,7 +932,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
           <p data-i18n="about.p2">gohan.cat és el lloc on publico projectes relacionats o no amb la intel·ligència artificial. És el laboratori per experimentar amb tecnologia, i especialment amb IA.</p>
           <h3 id="qui-soc" data-i18n="about.who">Qui hi ha darrere</h3>
           <p data-i18n="about.p3">Soc l'Ivan Picó, <strong>Project Manager Tècnic</strong>. Coordino equips de negoci i tècnics al llarg de tot el cicle de vida dels projectes: planificació, entrega, riscos i dependències. M'agrada especialment ajudar que un projecte que comença poc definit acabi sortint bé.</p>
-          <p data-i18n="about.p4">També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surten jocs com Overmanaging i Overworking, que riuen una mica d'aquest món.</p>
+          <p data-i18n="about.p4">També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surt Overworking, un joc que riu una mica d'aquest món.</p>
           <div class="about-actions">
             <a class="btn btn-primary" href="https://ivanpico.com/" target="_blank" rel="me noopener"><span data-i18n="about.cta1">Coneix el meu perfil</span><span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span> <svg aria-hidden="true"><use href="#ext"/></svg></a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/ivanpico" target="_blank" rel="me noopener"><svg aria-hidden="true"><use href="#linkedin"/></svg> <span data-i18n="about.cta2">Connecta a LinkedIn</span><span class="sr-only" data-i18n="newtab"> (s'obre en una pestanya nova)</span></a>
@@ -1065,7 +970,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
   var I18N = {
     ca: {
       'meta.title': "GoHan Cat · Projectes IA i aplicacions web",
-      'meta.desc': "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.",
+      'meta.desc': "El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger.",
       'meta.url': 'https://gohan.cat/',
       'meta.locale': 'ca_ES',
       'meta.localealt': 'es_ES',
@@ -1091,11 +996,9 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'card.open': "Obre l'app",
       'card.news': "Llegeix la notícia",
       'newtab': " (s'obre en una pestanya nova)",
-      'om.card': "Joc cooperatiu frenètic per a 1–2 jugadors: ets Project Manager IT i has de preparar dossiers, apagar impressores en flames i complir l'agenda abans que caduqui.",
       'ow.card': "Joc cooperatiu frenètic per a 1 o 2 jugadors en una oficina de programadors: programa, compila, testeja i desplega features abans que caduqui el tiquet o cremi el servidor.",
       'cl.card': "Llibreta d'economia domèstica per apuntar ingressos i despeses, veure'n el resum per categories i automatitzar pagaments periòdics, amb les dades xifrades només al teu dispositiu.",
       'vc.card': "Web de lloguer d'una furgoneta camper des de Barcelona, amb tarifes per temporada, destinacions europees suggerides i un formulari de reserva que calcula el preu segons les dates.",
-      'shot.om': "Captura de la pantalla de títol d'Overmanaging",
       'shot.ow': "Captura de la pantalla de títol d'Overworking",
       'shot.cl': "Captura de la pantalla d'inici de Cost-Ledger",
       'shot.vc': "Captura de la portada de Viajar con Camper",
@@ -1103,11 +1006,6 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'news.intro': "Llançaments i novetats de cada projecte.",
       'more': "Llegeix més",
       'less': "Amaga el text",
-      'om.title': "OVERMANAGING: sobreviu a l'agenda d'un Project Manager IT",
-      'om.sum': "Publiquem OVERMANAGING, un joc cooperatiu de caos d'oficina per a un o dos jugadors, germà d'OVERWORKING. Es juga directament al navegador, en català i castellà.",
-      'om.b1': "OVERMANAGING és un joc cooperatiu d'estil «cuina frenètica» en què fas de Project Manager IT. La cua de comandes és la teva agenda del dia: revisar el pressupost, la reunió d'equip, el seguiment amb el client, el comitè de direcció, trucades i one-to-ones. Per a cada cita cal preparar un dossier: agafar l'encàrrec, redactar-lo al portàtil, imprimir-lo, signar-lo, posar-lo a la carpeta i portar-lo a la sala de reunions.",
-      'om.b2': "Tot plegat mentre la impressora s'encalla i crema, les notificacions bloquegen les taules, el cafè s'acaba i el CEO apareix amb «una ideeta ràpida». Hi ha cinc nivells, de la startup al tancament de trimestre, que es trien en un roadmap en forma de diagrama de Gantt, amb estrelles i progrés desat. Es pot jugar sol, alternant entre dos PM, o en cooperatiu local amb teclat o comandaments.",
-      'om.b3': "Està fet amb HTML5 Canvas i JavaScript pur, sense dependències ni compilació: tots els gràfics es dibuixen per codi i la música i els efectes se sintetitzen amb WebAudio. És bilingüe, instal·lable com a PWA i inclou un panell d'ajustos de dificultat per a desenvolupadors.",
       'ow.title': "OVERWORKING: el caos d'una oficina de programadors convertit en joc cooperatiu",
       'ow.sum': "Ja es pot jugar a OVERWORKING, un joc cooperatiu a contrarellotge per al navegador on cal servir features als clients abans que s'acabi el temps. Per a 1 o 2 jugadors, amb teclat o comandament.",
       'ow.b1': "OVERWORKING és un joc cooperatiu d'estil «cuina frenètica» ambientat en una oficina de programadors. Els «plats» són features que demanen els clients: cal agafar l'spec de la impressora, programar-la a l'escriptori, compilar-la al servidor de build, testejar-la, ficar-la en un Pull Request i desplegar-la abans que caduqui el tiquet. Tot plegat mentre els servidors s'encenen per un SEGFAULT, s'escapen bugs, s'acaba el cafè i el mànager pregunta si tens «5 minutets».",
@@ -1129,7 +1027,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'about.p2': "gohan.cat és el lloc on publico projectes relacionats o no amb la intel·ligència artificial. És el laboratori per experimentar amb tecnologia, i especialment amb IA.",
       'about.who': 'Qui hi ha darrere',
       'about.p3': "Soc l'Ivan Picó, <strong>Project Manager Tècnic</strong>. Coordino equips de negoci i tècnics al llarg de tot el cicle de vida dels projectes: planificació, entrega, riscos i dependències. M'agrada especialment ajudar que un projecte que comença poc definit acabi sortint bé.",
-      'about.p4': "També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surten jocs com Overmanaging i Overworking, que riuen una mica d'aquest món.",
+      'about.p4': "També exploro l'automatització i els fluxos de treball amb IA per fer la gestió més eficient. I quan no gestiono projectes, en programo de petits per diversió: d'aquí surt Overworking, un joc que riu una mica d'aquest món.",
       'about.cta1': 'Coneix el meu perfil',
       'about.cta2': 'Connecta a LinkedIn',
       'person.job': 'Project Manager Tècnic',
@@ -1144,7 +1042,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
     },
     es: {
       'meta.title': 'GoHan Cat · Proyectos IA y aplicaciones web',
-      'meta.desc': 'El laboratorio de Ivan Picó, Project Manager Técnico: juegos cooperativos para el navegador como Overmanaging y Overworking y apps web como Cost-Ledger.',
+      'meta.desc': 'El laboratorio de Ivan Picó, Project Manager Técnico: juegos cooperativos para el navegador como Overworking y apps web como Cost-Ledger.',
       'meta.url': 'https://gohan.cat/es/',
       'meta.locale': 'es_ES',
       'meta.localealt': 'ca_ES',
@@ -1170,11 +1068,9 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'card.open': "Abrir la app",
       'card.news': "Leer la noticia",
       'newtab': " (se abre en una pestaña nueva)",
-      'om.card': "Juego cooperativo frenético para 1–2 jugadores: eres Project Manager IT y debes preparar dossieres, apagar impresoras en llamas y cumplir la agenda antes de que caduque.",
       'ow.card': "Juego cooperativo frenético para 1 o 2 jugadores en una oficina de programadores: programa, compila, testea y despliega features antes de que caduque el ticket o arda el servidor.",
       'cl.card': "Libreta de economía doméstica para apuntar ingresos y gastos, ver su resumen por categorías y automatizar pagos periódicos, con los datos cifrados solo en tu dispositivo.",
       'vc.card': "Web de alquiler de una furgoneta camper desde Barcelona, con tarifas por temporada, destinos europeos sugeridos y un formulario de reserva que calcula el precio según las fechas.",
-      'shot.om': "Captura de la pantalla de título de Overmanaging",
       'shot.ow': "Captura de la pantalla de título de Overworking",
       'shot.cl': "Captura de la pantalla de inicio de Cost-Ledger",
       'shot.vc': "Captura de la portada de Viajar con Camper",
@@ -1182,11 +1078,6 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'news.intro': "Lanzamientos y novedades de cada proyecto.",
       'more': "Leer más",
       'less': "Ocultar el texto",
-      'om.title': "OVERMANAGING: sobrevive a la agenda de un Project Manager IT",
-      'om.sum': "Publicamos OVERMANAGING, un juego cooperativo de caos de oficina para uno o dos jugadores, hermano de OVERWORKING. Se juega directamente en el navegador, en catalán y castellano.",
-      'om.b1': "OVERMANAGING es un juego cooperativo de estilo «cocina frenética» en el que haces de Project Manager IT. La cola de pedidos es tu agenda del día: revisar el presupuesto, la reunión de equipo, el seguimiento con el cliente, el comité de dirección, llamadas y one-to-ones. Para cada cita hay que preparar un dossier: coger el encargo, redactarlo en el portátil, imprimirlo, firmarlo, meterlo en la carpeta y llevarlo a la sala de reuniones.",
-      'om.b2': "Todo ello mientras la impresora se atasca y arde, las notificaciones bloquean las mesas, el café se agota y el CEO aparece con «una ideíta rápida». Hay cinco niveles, de la startup al cierre de trimestre, que se eligen en un roadmap con forma de diagrama de Gantt, con estrellas y progreso guardado. Se puede jugar solo, alternando entre dos PM, o en cooperativo local con teclado o mandos.",
-      'om.b3': "Está hecho con HTML5 Canvas y JavaScript puro, sin dependencias ni compilación: todos los gráficos se dibujan por código y la música y los efectos se sintetizan con WebAudio. Es bilingüe, instalable como PWA e incluye un panel de ajustes de dificultad para desarrolladores.",
       'ow.title': "OVERWORKING: el caos de una oficina de programadores convertido en juego cooperativo",
       'ow.sum': "Ya se puede jugar a OVERWORKING, un juego cooperativo a contrarreloj para el navegador en el que hay que servir features a los clientes antes de que se acabe el tiempo. Para 1 o 2 jugadores, con teclado o mando.",
       'ow.b1': "OVERWORKING es un juego cooperativo de estilo «cocina frenética» ambientado en una oficina de programadores. Los «platos» son features que piden los clientes: hay que coger la spec de la impresora, programarla en el escritorio, compilarla en el servidor de build, testearla, meterla en un Pull Request y desplegarla antes de que caduque el ticket. Todo ello mientras los servidores arden por un SEGFAULT, se escapan bugs, se acaba el café y el mánager pregunta si tienes «5 minutitos».",
@@ -1208,7 +1099,7 @@ section{scroll-margin-top:var(--header-offset,80px)}
       'about.p2': 'gohan.cat es el lugar donde publico proyectos relacionados o no con la inteligencia artificial. Es el laboratorio para experimentar con tecnología, y en especial con IA.',
       'about.who': 'Quién hay detrás',
       'about.p3': 'Soy Ivan Picó, <strong>Project Manager Técnico</strong>. Coordino equipos de negocio y técnicos a lo largo de todo el ciclo de vida de los proyectos: planificación, entrega, riesgos y dependencias. Me gusta especialmente ayudar a que un proyecto que empieza poco definido acabe saliendo bien.',
-      'about.p4': 'También exploro la automatización y los flujos de trabajo con IA para hacer la gestión más eficiente. Y cuando no gestiono proyectos, programo otros pequeños por diversión: de ahí salen juegos como Overmanaging y Overworking, que se ríen un poco de ese mundo.',
+      'about.p4': 'También exploro la automatización y los flujos de trabajo con IA para hacer la gestión más eficiente. Y cuando no gestiono proyectos, programo otros pequeños por diversión: de ahí sale Overworking, un juego que se ríe un poco de ese mundo.',
       'about.cta1': 'Conoce mi perfil',
       'about.cta2': 'Conecta en LinkedIn',
       'person.job': 'Project Manager Técnico',

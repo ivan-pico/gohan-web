@@ -31,17 +31,17 @@ Objectiu: que gohan.cat aparegui als cercadors i que les visites acabin al perfi
   - `/` no redirigeix mai segons l'idioma del navegador. Només envia a `/es/` si l'usuari havia triat ES explícitament. Googlebot no té `localStorage`, així que sempre veu el català a `/`.
   - `?lang=es` redirigeix a `/es/` i `?lang=ca`, a `/`. En tots dos casos es conserva l'àncora i s'esborra el paràmetre.
 - **Title i description** orientats a la marca personal i a les cerques reals:
-  - CA: «GoHan Cat · Projectes IA i aplicacions web» / «El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overmanaging i Overworking i apps web com Cost-Ledger.»
+  - CA: «GoHan Cat · Projectes IA i aplicacions web» / «El laboratori d'Ivan Picó, Project Manager Tècnic: jocs cooperatius per al navegador com Overworking i apps web com Cost-Ledger.»
   - ES: «GoHan Cat · Proyectos IA y aplicaciones web» / «El laboratorio de Ivan Picó, Project Manager Técnico: …»
   - El text de la capçalera també parla ara de «jocs cooperatius per al navegador».
 - **Open Graph i Twitter Card complets**, amb imatges pròpies de 1200×630: `img/og-image.png` (CA) i `img/og-image-es.png` (ES). Inclouen el gat amb el bol, «GoHan Cat», «Projectes IA i aplicacions web» i «Ivan Picó · Project Manager Tècnic». Les plantilles són a `tools/og/` (es renderitzen a 1200×630 amb Chrome headless). També hi ha `og:locale` ca_ES / es_ES amb l'idioma alternatiu.
 - **Dades estructurades JSON-LD** (`@graph`), generades a partir del contingut visible:
   - `Person` Ivan Picó, que és l'entitat central (`@id https://gohan.cat/#ivan-pico`): `jobTitle` «Project Manager Tècnic/Técnico», `url` ivanpico.com i `sameAs` LinkedIn, GitHub i ivanpico.com.
   - `WebSite` i `WebPage`, amb `author`, `creator`, `publisher` i `about` apuntant a la Person.
-  - `ItemList` dels 4 projectes:
-    - Overmanaging i Overworking com a `VideoGame`, amb jugadors 1–2, cooperatiu i gratuït.
+  - `ItemList` dels 3 projectes:
+    - Overworking com a `VideoGame`, amb jugadors 1–2, cooperatiu i gratuït.
     - Cost-Ledger com a `WebApplication` (FinanceApplication, gratuïta).
-    - Viajar con Camper com a `WebApplication` (TravelApplication, sense oferta gratuïta perquè és un lloguer).
+    - Viajar con Camper com a `WebSite` (sense oferta gratuïta perquè és un lloguer).
   - Un `BlogPosting` per notícia (titular, data, autor, imatge i idioma).
 - **robots.txt** (ho permet tot i apunta al sitemap) i **sitemap.xml** amb `/` i `/es/`, alternates `xhtml:link` i `lastmod`.
 - **Icones**:
@@ -109,12 +109,12 @@ Si canvies el subtítol de la imatge, regenera-la amb Chrome headless (1200×630
 2. **Bing Webmaster Tools**: importa la propietat des de Search Console (és el camí més ràpid) o verifica-la per DNS (CNAME/TXT a dinahosting). Envia el sitemap. Bing també alimenta DuckDuckGo, Ecosia i ChatGPT Search.
 3. **Enllaços creuats entre ivanpico.com, LinkedIn i gohan.cat**, el triangle de la marca personal:
    - A ivanpico.com, una secció «Projectes personals» que enllaci a https://gohan.cat/ (i a `/es/` a la versió castellana), amb un text d'àncora descriptiu, per exemple «jocs i aplicacions web que desenvolupo a gohan.cat». Afegeix-hi `sameAs`/`url` de gohan.cat al JSON-LD Person d'ivanpico.com, amb el mateix nom i càrrec.
-   - A LinkedIn: gohan.cat a la secció «Destacat» (Featured) i a «Projectes», el lloc web del perfil apuntant a ivanpico.com i una publicació presentant Overmanaging i Overworking, que fan broma de la gestió de projectes. Encaixa amb el perfil de PM i és el contingut que més pot circular.
+   - A LinkedIn: gohan.cat a la secció «Destacat» (Featured) i a «Projectes», el lloc web del perfil apuntant a ivanpico.com i una publicació presentant Overworking, que fa broma del caos d'una oficina tècnica. Encaixa amb el perfil de PM i és el contingut que més pot circular.
    - Mantén el mateix nom («Ivan Picó») i càrrec («Project Manager Tècnic») a tot arreu perquè Google consolidi l'entitat.
 4. **GitHub**:
    - Al perfil https://github.com/ivan-pico, posa ivanpico.com com a web i un README de perfil que enllaci a gohan.cat i a LinkedIn.
-   - A cada repo, omple el camp *Website* amb el seu subdomini (overmanaging.gohan.cat, etc.), afegeix *topics* (`browser-game`, `coop-game`, `html5-canvas`, `pwa`, `personal-finance`…) i, al README, una línia «Part de [gohan.cat](https://gohan.cat) · per [Ivan Picó](https://ivanpico.com)».
-5. **Directoris de jocs web**, per als dos jocs. Cada fitxa és un enllaç i una font de trànsit real:
+   - A cada repo, omple el camp *Website* amb el seu subdomini (overworking.gohan.cat, etc.), afegeix *topics* (`browser-game`, `coop-game`, `html5-canvas`, `pwa`, `personal-finance`…) i, al README, una línia «Part de [gohan.cat](https://gohan.cat) · per [Ivan Picó](https://ivanpico.com)».
+5. **Directoris de jocs web**, per a Overworking i els jocs que vinguin. Cada fitxa és un enllaç i una font de trànsit real:
    - itch.io: pàgina de joc HTML5 incrustat, o enllaç extern, amb tags «co-op», «local multiplayer», «office» i «management» i enllaç a gohan.cat i ivanpico.com al perfil de creador.
    - Newgrounds, Game Jolt, CrazyGames/Poki (aquests dos revisen els jocs que s'hi envien) i el subreddit r/WebGames.
    - Una publicació a Hacker News («Show HN») o a dev.to explicant com està fet (Canvas + WebAudio sense dependències). És contingut tècnic que reforça el perfil professional.

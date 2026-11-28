@@ -24,7 +24,6 @@ const LASTMOD = (ARGS.find(a => a.startsWith('--lastmod=')) || '').split('=')[1]
 
 // Metadades dels projectes que no surten del text visible (clau: URL del botó «Obre l'app»).
 const PROJECT_META = {
-  'https://overmanaging.gohan.cat/': { type: 'VideoGame', category: 'GameApplication', free: true, players: [1, 2], playMode: ['SinglePlayer', 'CoOp'], languages: ['ca', 'es'] },
   'https://overworking.gohan.cat/': { type: 'VideoGame', category: 'GameApplication', free: true, players: [1, 2], playMode: ['SinglePlayer', 'CoOp'] },
   'https://cost-ledger.gohan.cat/': { type: 'WebApplication', category: 'FinanceApplication', free: true, alternateName: 'Casa en orden' },
   'https://viajarconcamper.com/': { type: 'WebSite', free: false, languages: ['es', 'en'] },
